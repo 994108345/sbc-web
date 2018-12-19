@@ -1,0 +1,37 @@
+<!--提示信息-->
+<div style="float: right;position: absolute;z-index:200">
+  <p-messages [(value)]="msgs" [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" ></p-messages>
+</div>
+
+<body id="login-body">
+
+  <div style="height:61.8%;">
+
+  </div>
+  <!--登陆账号密码-->
+  <div>
+    <div>
+      <span class="ui-float-label">
+        <input id="userName" type="text" size="30" pInputText name="userName" [(ngModel)]="user.userName">
+        <label for="userName">用户名</label>
+      </span>
+    </div>
+    <br>
+    <br>
+    <div>
+      <span class="ui-float-label">
+        <input id="passWord" type="text" size="30" pInputText name="passWord" [(ngModel)]="user.passWord">
+        <label for="passWord">密码</label>
+      </span>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div>
+    <button pButton type="button" label="登陆" class="ui-button-rounded ui-button-info" (click)="login()"></button>
+  </div>
+
+
+
+
+</body>
