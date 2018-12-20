@@ -6,6 +6,11 @@ module.exports =
   "/sbc-permission": {
     "target": "http://localhost:7011",
     "secure": false,
+  },
+
+  "/sbc-chatboard": {
+    "target": "http://localhost:7012",
+    "secure": false,
   }
 }
 

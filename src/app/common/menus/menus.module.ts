@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {MenusComponent} from './menus.component';
 import {
   ButtonModule,
@@ -13,20 +12,16 @@ import {
 } from 'primeng/primeng';
 import {MenusRouterModule} from './menus.routing';
 import {HttpClientModule} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import {CommonService} from '../service/base/common.service';
 import {WzlCacheService} from '../service/wzlcache/wzlceche.service';
 import {WzlAlertService} from '../service/wzlalert/wzlalert.service';
+import {MenusMainComponent} from './main/menus.main.component';
+import {IndexComponent} from './index/index.component';
 
 @NgModule({
-  declarations: [
-    MenusComponent
-  ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     /*普通输入框*/
     InputTextModule,
     /*表单模块，要使用ngModel，就要使用这个模块*/
@@ -46,7 +41,12 @@ import {WzlAlertService} from '../service/wzlalert/wzlalert.service';
     MenuModule,
     PanelMenuModule,
     /*login路由模块：路由模块都放在最后*/
-    MenusRouterModule
+    MenusRouterModule,
+  ],
+  declarations: [
+    MenusComponent,
+    MenusMainComponent,
+    IndexComponent,
   ],
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService],
 })

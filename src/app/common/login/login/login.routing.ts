@@ -2,19 +2,14 @@
  * Created by tomfang on 2017-08-18.
  */
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './login.component';
 import {NgModule} from '@angular/core';
+import {LoginMainComponent} from './main/login.main.component';
 
 const loginRoutes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginMainComponent
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-  }
-
 ];
 
 @NgModule({

@@ -23,8 +23,6 @@ export class WzlAlertService {
     /*清空提示信息数组*/
     this.msgs = [];
     this.msgs.push({severity: 'success', summary: typeMessage, detail: messageInfo});
-    /*调用定时器*/
-    this.clearByTimeOut();
     return this.msgs;
   }
 
@@ -35,8 +33,6 @@ export class WzlAlertService {
     }
     this.msgs = [];
     this.msgs.push({severity: 'info', summary: typeMessage, detail: messageInfo});
-    /*调用定时器*/
-    this.clearByTimeOut();
     return this.msgs;
   }
 
@@ -47,8 +43,6 @@ export class WzlAlertService {
     }
     this.msgs = [];
     this.msgs.push({severity: 'warn', summary: typeMessage, detail: messageInfo});
-    /*调用定时器*/
-    this.clearByTimeOut();
     return this.msgs;
   }
 
@@ -59,8 +53,6 @@ export class WzlAlertService {
     }
     this.msgs = [];
     this.msgs.push({severity:'error', summary: typeMessage, detail: messageInfo});
-    /*调用定时器*/
-    this.clearByTimeOut();
     return this.msgs;
   }
 
@@ -71,8 +63,6 @@ export class WzlAlertService {
       const messagesInfo: MessageInfo = message[i];
       this.msgs.push(messagesInfo);
     }
-    /*调用定时器*/
-    this.clearByTimeOut();
     return this.msgs;
   }
 

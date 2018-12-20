@@ -4,9 +4,22 @@
 body{
   text-align:center;
 }
-
 div,body,html{
   margin: 0px;
   padding: 0px;
 }
 ul{padding:0px; margin:0px;}
+
+
+/*所有分页的工具栏*/
+.tools-bar{
+  padding-right: 5px;
+  width: 98%;
+  height: auto;
+  margin: 4px;
+  border-radius:5px;/*圆角*/
+  text-align:right;
+}
+button{
+  margin: 5px;
+}

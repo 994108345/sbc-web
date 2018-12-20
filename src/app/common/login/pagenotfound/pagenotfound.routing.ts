@@ -5,19 +5,19 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {PagenotfoundComponent} from './pagenotfound.component';
 
-const loginRoutes: Routes = [
+const pageNotFoundRoutes: Routes = [
   {
-    path: '',
+    path: 'pagenotfound',
     component: PagenotfoundComponent
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(loginRoutes)
+    RouterModule.forChild(pageNotFoundRoutes)
   ],
   exports: [
     RouterModule
   ]
 })
-export class PagenotfoundRouting { }
+export class PagenotfoundRouterModule { }

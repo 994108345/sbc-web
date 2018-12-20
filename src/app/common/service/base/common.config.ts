@@ -3,7 +3,9 @@
 import {HttpHeaders} from '@angular/common/http';
 import {Message} from 'primeng/api';
 
-export const  BizRoot = "/sbc-permission";
+export const  PermissionRoot = "/sbc-permission";
+export const  ChatboardRoot = "/sbc-chatboard";
+
 //前台项目名
 export const  BaseRoot = "/app";
 

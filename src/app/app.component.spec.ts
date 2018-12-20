@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'sbc-web'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('sbc-web');
+    expect(app.title).toEqual('sbcweb');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to sbc-web!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to sbcweb!');
   });
 });
