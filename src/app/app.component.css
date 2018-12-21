@@ -1,9 +1,3 @@
-.name{
-  display: inline-block;
-}
-body{
-  text-align:center;
-}
 div,body,html{
   margin: 0px;
   padding: 0px;
@@ -22,4 +16,9 @@ ul{padding:0px; margin:0px;}
 }
 button{
   margin: 5px;
+}
+
+.page{
+  height: 100%;
+  width: 100%;
 }

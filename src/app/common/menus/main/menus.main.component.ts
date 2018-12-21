@@ -42,6 +42,14 @@ export class MenusMainComponent extends AbstractComponent{
         },
         ]
       },
+      {
+        label: "demo",
+        icon: 'pi pi-pw pi-file',
+      },
+      {
+        label: "demo",
+        icon: 'pi pi-pw pi-file',
+      },
     ];
   }
 }

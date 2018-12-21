@@ -21,8 +21,8 @@ export class WzlAlertService {
       typeMessage = 'Success';
     }
     /*清空提示信息数组*/
-    this.msgs = [];
-    this.msgs.push({severity: 'success', summary: typeMessage, detail: messageInfo});
+    this.clear();
+    this.messageService.add ({severity: 'success', summary: typeMessage, detail: messageInfo});
     return this.msgs;
   }
 
@@ -31,8 +31,8 @@ export class WzlAlertService {
     if (!typeMessage) {
       typeMessage = 'Info';
     }
-    this.msgs = [];
-    this.msgs.push({severity: 'info', summary: typeMessage, detail: messageInfo});
+    this.clear();
+    this.messageService.add ({severity: 'info', summary: typeMessage, detail: messageInfo});
     return this.msgs;
   }
 
@@ -41,8 +41,8 @@ export class WzlAlertService {
     if (!typeMessage) {
       typeMessage = 'Warn';
     }
-    this.msgs = [];
-    this.msgs.push({severity: 'warn', summary: typeMessage, detail: messageInfo});
+    this.clear();
+    this.messageService.add ({severity: 'warn', summary: typeMessage, detail: messageInfo});
     return this.msgs;
   }
 
@@ -51,17 +51,17 @@ export class WzlAlertService {
     if (!typeMessage) {
       typeMessage = 'Error';
     }
-    this.msgs = [];
-    this.msgs.push({severity:'error', summary: typeMessage, detail: messageInfo});
+    this.clear();
+    this.messageService.add ({severity:'error', summary: typeMessage, detail: messageInfo});
     return this.msgs;
   }
 
   /*显示多条信息*/
   multiple(message: any[]) {
-    this.msgs = [];
+    this.clear();
     for (let i = 0; i < message.length; i++) {
       const messagesInfo: MessageInfo = message[i];
-      this.msgs.push(messagesInfo);
+      this.messageService.add (messagesInfo);
     }
     return this.msgs;
   }
@@ -72,9 +72,7 @@ export class WzlAlertService {
   }
 /*清空提示信息*/
   clear() {
-    console.log("调用了");
-    /*调用清空常量数组的方法*/
-    this.msgs = [];
+    this.messageService.clear();
   }
 
   /*设置定时器，定时清除提示信息*/

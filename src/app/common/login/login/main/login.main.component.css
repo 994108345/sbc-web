@@ -9,3 +9,7 @@ div{
   background-size:cover;
   background-attachment: fixed;
 }
+
+body{
+  text-align: center;
+}

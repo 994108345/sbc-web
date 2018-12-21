@@ -19,7 +19,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     /*http请求模块*/
     HttpClientModule,
-    /*消息提示模块*/
     /*自己建的路由模块*/
     AppRoutingModule,
 

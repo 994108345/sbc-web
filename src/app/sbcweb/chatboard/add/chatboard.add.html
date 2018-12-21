@@ -1,0 +1,15 @@
+<div id="chatboard-add" class="page">
+  <div>
+    <div>
+      <h1>留言：</h1>
+      <textarea pInputTextarea [(ngModel)]="commentMessage.comment"></textarea>
+    </div>
+    <br>
+    <br>
+  </div>
+
+  <div>
+    <button pButton type="button" label="保存" class="ui-button-rounded ui-button-info" (click)="saveComment()"></button>
+  </div>
+
+</div>

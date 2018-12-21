@@ -1,9 +1,6 @@
-<!--提示信息-->
-<div style="float: right;position: absolute;z-index:200">
-  <p-messages [(value)]="msgs" [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" ></p-messages>
-</div>
-
 <body id="login-body">
+<!--提示信息-->
+<p-toast [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'"></p-toast>
 
 <div style="height:61.8%;">
 
@@ -26,9 +23,9 @@
   </div>
 </div>
 <br>
-<br>
 <div>
   <button pButton type="button" label="登陆" class="ui-button-rounded ui-button-info" (click)="login()"></button>
+  <button pButton type="button" label="消息" class="ui-button-rounded ui-button-info" (click)="confirm()"></button>
 </div>
 
 

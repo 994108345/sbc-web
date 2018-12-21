@@ -10,6 +10,7 @@ import {ChatboardComponent} from './chatboard.component';
 import {TableModule} from 'primeng/table';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {ChatboardAddComponent} from './add/chatboard.add.component';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import {CommonModule} from '@angular/common';
   ],
   providers: [WzlAlertService,WzlCacheService],
   declarations: [
-    ChatboardComponent,ChatboardMainComponent
+    ChatboardComponent,ChatboardMainComponent,ChatboardAddComponent
   ],
   bootstrap: []
 })

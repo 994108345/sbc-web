@@ -46,7 +46,6 @@ import {IndexComponent} from './index/index.component';
   declarations: [
     MenusComponent,
     MenusMainComponent,
-    IndexComponent,
   ],
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService],
 })

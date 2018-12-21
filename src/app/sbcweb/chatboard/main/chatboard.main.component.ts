@@ -1,7 +1,7 @@
 import {Component, Injector, ViewChild} from '@angular/core';
 import {AbstractComponent} from '../../../common/service/abstract.component';
 import {ChatboardRoot} from '../../../common/service/base/common.config';
-import {chatboardCols_config} from './chatboard.main.config';
+import {chatboardCols_config} from '../chatboard.main.config';
 
 @Component({
   templateUrl: './chatboard.main.html',
@@ -33,6 +33,6 @@ export class ChatboardMainComponent extends AbstractComponent{
 
   /*跳转添加页面*/
   routerAddChat(){
-
+    this.router.navigate(["menus/chatboard/add"]);
   }
 }

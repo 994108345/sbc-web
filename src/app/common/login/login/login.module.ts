@@ -24,8 +24,6 @@ import {LoginMainComponent} from './main/login.main.component';
     /*按钮模块*/
     ButtonModule,
     /*消息提示模块*/
-    MessagesModule,
-    MessageModule,
     ToastModule,
     /*login路由模块：路由模块都放在最后*/
     LoginRoutingModule

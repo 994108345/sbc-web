@@ -1,6 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {PermissionRoot, CommonRouters, successStatus} from '../../../service/base/common.config';
 import {AbstractComponent} from '../../../service/abstract.component';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector:'app-login',
@@ -12,7 +13,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
   user:any = {};//一个用户名
 
   /*初始化必须加，初始化基类的数据*/
-  constructor(public injector:Injector){
+  constructor(public injector:Injector,private messageService: MessageService){
     super(injector);
   }
 
@@ -34,18 +35,26 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
     this.commonService.doHttpPost(this.commonUrls.loginUrl,condition).then(rst => {
       if(rst){
         if(rst.status != successStatus){
-          this.msgs = this.wzlAlert.error(rst.message);
+          this.wzlAlert.error(rst.message);
         }else{
-          this.msgs = this.wzlAlert.success("登陆成功");
+          this.wzlAlert.success("登录成功");
           /*成功跳转菜单页面*/
-          console.log("路由"+this.commonRouters.menusRouter);
           this.router.navigate([this.commonRouters.menusRouter]);
         }
       }else{
-        this.msgs = this.wzlAlert.success("返回参数异常，请联系管理员");
+        this.wzlAlert.success("返回参数异常，请联系管理员");
       }
     }).catch(rtc =>{
-      this.msgs = this.wzlAlert.error("http请求出现异常，请联系管理员");
+      this.wzlAlert.error("http请求出现异常，请联系管理员");
     })
+  }
+
+  /*消息关闭*/
+  messageClose(){}
+
+  /*测试消息提示*/
+  confirm(){
+    this.wzlAlert.success("成功了吗");
+    this.messageService.add({severity:'success', summary: '消息提示', detail:'Order submitted'});
   }
 }
