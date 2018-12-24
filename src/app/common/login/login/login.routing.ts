@@ -4,11 +4,17 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {LoginMainComponent} from './main/login.main.component';
+import {LoginRegisterComponent} from './register/login.register.component';
+import {LoginComponent} from './login.component';
 
 const loginRoutes: Routes = [
   {
     path: '',
-    component: LoginMainComponent
+    component: LoginComponent,
+    children:[
+      {path: '', component: LoginMainComponent},
+      {path: 'register', component: LoginRegisterComponent},
+    ]
   },
 ];
 

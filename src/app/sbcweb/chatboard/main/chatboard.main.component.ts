@@ -29,6 +29,9 @@ export class ChatboardMainComponent extends AbstractComponent{
     };
     /*列名*/
     this.chatboardCols = chatboardCols_config;
+
+    /*设置查询参数*/
+    this.order = {"userName":"wzl"};
   }
 
   /*跳转添加页面*/

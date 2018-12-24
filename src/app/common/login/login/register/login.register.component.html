@@ -1,0 +1,67 @@
+<body id="login-body">
+<!--提示信息-->
+  <p-toast [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'"></p-toast>
+
+  <div style="height: 10%">
+
+  </div>
+
+  <p-fieldset legend="注册"  [style]="{'margin':'100px'}">
+    <br><br><br>
+    <div class="ui-g height-top">
+
+      <div class="ui-g-4">
+            <span class="ui-float-label">
+              <input id="userName" type="text" size="60" pInputText name="userName" [(ngModel)]="order.userName">
+              <label for="userName">用户名</label>
+            </span>
+      </div>
+      <div class="ui-g-4">
+            <span class="ui-float-label">
+              <input id="passWord" type="password" size="60" pInputText name="passWord" [(ngModel)]="order.passWord">
+              <label for="passWord">密码</label>
+            </span>
+      </div>
+      <div class="ui-g-4">
+            <span class="ui-float-label">
+              <input id="confirmPassWord" type="password" size="60" pInputText name="confirmPassWord" [(ngModel)]="order.confirmPassWord">
+              <label for="confirmPassWord">确认密码</label>
+            </span>
+      </div>
+
+      <br><br><br>
+      <div class="ui-g-6">
+            <span class="ui-float-label">
+              <input id="question1" type="text" size="60  " pInputText name="question1" [(ngModel)]="order.question1">
+              <label for="question1">问题1</label>
+            </span>
+      </div>
+
+      <div class="ui-g-6">
+            <span class="ui-float-label">
+              <input id="answer1" type="text" size="30" pInputText name="answer1" [(ngModel)]="order.answer1">
+              <label for="answer1">答案1</label>
+            </span>
+      </div>
+
+      <br><br><br>
+
+      <div class="ui-g-6">
+            <span class="ui-float-label">
+              <input id="question2" type="text" size="30" pInputText name="question2" [(ngModel)]="order.question2">
+              <label for="question2">问题2</label>
+            </span>
+      </div>
+
+      <div class="ui-g-6">
+            <span class="ui-float-label">
+              <input id="answer2" type="text" size="30" pInputText name="answer2" [(ngModel)]="order.answer2">
+              <label for="answer2">答案2</label>
+            </span>
+      </div>
+
+      <button pButton type="button" label="确定" (click)="register()"  class="ui-button-rounded"></button>
+
+    </div>
+  </p-fieldset>
+</body>

@@ -1,34 +1,31 @@
 <body id="login-body">
 <!--提示信息-->
 <p-toast [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'"></p-toast>
+  <div (keyup)="($event.which === 13)?login():0" style="height: 100%;">
+    <div style="height:61.8%;">
 
-<div style="height:61.8%;">
-
-</div>
-<!--登陆账号密码-->
-<div>
-  <div>
-      <span class="ui-float-label">
-        <input id="userName" type="text" size="30" pInputText name="userName" [(ngModel)]="user.userName">
-        <label for="userName">用户名</label>
-      </span>
+    </div>
+    <!--登陆账号密码-->
+    <div>
+      <div>
+          <span class="ui-float-label">
+            <input id="userName" type="text" size="30" pInputText name="userName" [(ngModel)]="user.userName">
+            <label for="userName">用户名</label>
+          </span>
+      </div>
+      <br>
+      <br>
+      <div>
+          <span class="ui-float-label">
+            <input id="passWord" type="text" size="30" pInputText name="passWord" [(ngModel)]="user.passWord">
+            <label for="passWord">密码</label>
+          </span>
+      </div>
+    </div>
+    <br>
+    <div>
+      <button pButton type="button" label="登陆" class="ui-button-rounded ui-button-info" (click)="login()"></button>
+      <button pButton type="button" label="注册" class="ui-button-rounded ui-button-info" (click)="register()"></button>
+    </div>
   </div>
-  <br>
-  <br>
-  <div>
-      <span class="ui-float-label">
-        <input id="passWord" type="text" size="30" pInputText name="passWord" [(ngModel)]="user.passWord">
-        <label for="passWord">密码</label>
-      </span>
-  </div>
-</div>
-<br>
-<div>
-  <button pButton type="button" label="登陆" class="ui-button-rounded ui-button-info" (click)="login()"></button>
-  <button pButton type="button" label="消息" class="ui-button-rounded ui-button-info" (click)="confirm()"></button>
-</div>
-
-
-
-
 </body>

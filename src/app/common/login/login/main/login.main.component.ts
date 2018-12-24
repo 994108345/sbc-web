@@ -27,6 +27,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
     /*跳转菜单页面路径*/
     this.commonRouters = new CommonRouters("");
     this.commonRouters.menusRouter = 'menus';
+    this.commonRouters.registerRouter = 'login/register';
   }
 
   /*登陆方法*/
@@ -53,8 +54,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
   messageClose(){}
 
   /*测试消息提示*/
-  confirm(){
-    this.wzlAlert.success("成功了吗");
-    this.messageService.add({severity:'success', summary: '消息提示', detail:'Order submitted'});
+  register(){
+    this.router.navigate([this.commonRouters.registerRouter]);
   }
 }
