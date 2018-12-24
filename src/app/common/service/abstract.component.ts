@@ -50,12 +50,13 @@ export class AbstractComponent implements OnDestroy{
           this.orders = rtnData['data'];
           /*总记录数*/
           this.totalRecords = rtnData['totalRecords'];
+          this.wzlAlert.success("查询成功");
         }else{
-          this.msgs = this.wzlAlert.error("查找失败，"+rtnData['message']);
+          this.wzlAlert.error("查找失败，"+rtnData['message']);
         }
       })
     } else {
-      this.msgs = this.wzlAlert.info("请求url不存在，请联系管理员！")
+      this.wzlAlert.info("请求url不存在，请联系管理员！")
     }
   }
 

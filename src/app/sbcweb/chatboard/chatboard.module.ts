@@ -11,6 +11,7 @@ import {TableModule} from 'primeng/table';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {ChatboardAddComponent} from './add/chatboard.add.component';
+import {ToastModule} from 'primeng/toast';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {ChatboardAddComponent} from './add/chatboard.add.component';
     /*消息提示模块*/
     MessagesModule,
     MessageModule,
+    ToastModule,
 
     /*表模块*/
     TableModule,
