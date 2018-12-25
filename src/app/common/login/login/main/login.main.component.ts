@@ -13,7 +13,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
   user:any = {};//一个用户名
 
   /*初始化必须加，初始化基类的数据*/
-  constructor(public injector:Injector,private messageService: MessageService){
+  constructor(public injector:Injector){
     super(injector);
   }
 
@@ -39,6 +39,8 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
           this.wzlAlert.error(rst.message);
         }else{
           this.wzlAlert.success("登录成功");
+          /*登陆成功时，将登陆的账号密码，存入缓存*/
+          this.wzlCache.setCache("userInfo",this.order);
           /*成功跳转菜单页面*/
           this.router.navigate([this.commonRouters.menusRouter]);
         }
@@ -49,9 +51,6 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
       this.wzlAlert.error("http请求出现异常，请联系管理员");
     })
   }
-
-  /*消息关闭*/
-  messageClose(){}
 
   /*测试消息提示*/
   register(){

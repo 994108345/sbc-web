@@ -4,9 +4,7 @@ import {
   ButtonModule,
   FieldsetModule,
   InputTextModule,
-  MessageModule,
   MessageService,
-  MessagesModule,
   PasswordModule
 } from 'primeng/primeng';
 import {LoginRoutingModule} from './login.routing';

@@ -6,20 +6,19 @@ export class WzlCacheService{
 
   constructor( ){
   }
-
   /*获取缓存*/
   getCache(key:string){
-    let strr = localStorage.getItem(key);
+    let strr = sessionStorage.getItem(key);
     return this.tOJsonObjs(strr);
   }
 
   /*设置缓存*/
   setCache(key:string,object:any){
     if(typeof(object)== "number"  || typeof(object)== "string" ){
-      localStorage.setItem(key,object.toString())
+      sessionStorage.setItem(key,object.toString())
     }else{
       let str = this.toJsonStr(object);
-      localStorage.setItem(key,str)
+      sessionStorage.setItem(key,str)
     }
 
   }
