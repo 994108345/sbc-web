@@ -1,0 +1,51 @@
+<body id="page-body">
+  <p-toast [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'"></p-toast>
+
+  <p-panel header="找回密码" [style]="{'margin':'100px'}">
+    <br>
+    <div class="ui-g">
+      <div class="ui-g-4">
+            <span class="ui-float-label">
+              <input id="questionComment1" type="text" size="30" pInputText name="questionComment1" [(ngModel)]="questionWeb1.questionComment1" readonly="true">
+              <label for="questionComment1">问题1</label>
+            </span>
+      </div>
+      <div class="ui-g-4">
+            <span class="ui-float-label">
+              <input id="questionAnswer1" type="text" size="30" pInputText name="questionAnswer1" [(ngModel)]="questionWeb1.questionAnswer1">
+              <label for="questionAnswer1">答案1</label>
+            </span>
+      </div>
+    </div>
+
+    <br><br>
+
+    <div  class="ui-g">
+      <div class="ui-g-4">
+            <span class="ui-float-label">
+              <input id="questionComment2" type="text" size="30" pInputText name="questionComment2" [(ngModel)]="questionWeb2.questionComment2" readonly="true">
+              <label for="questionComment2">问题2</label>
+            </span>
+      </div>
+      <div class="ui-g-4">
+            <span class="ui-float-label">
+              <input id="questionAnswer2" type="text" size="30" pInputText name="questionAnswer2" [(ngModel)]="questionWeb2.questionAnswer2">
+              <label for="questionAnswer2">答案2</label>
+            </span>
+      </div>
+    </div>
+    <button pButton type="button" label="确定" (click)="validQuestions()"  class="ui-button-rounded"></button>
+
+  </p-panel>
+
+  <p-dialog header="请输入用户名" [(visible)]="isDialog" [closable]="false" [blockScroll] = "true" [responsive]="true" [modal]="true" width="400">
+    <br>
+    <div class="ui-">
+            <span class="ui-float-label">
+              <input id="userName" type="text" size="30" pInputText  name="userName" [(ngModel)]="dialogObj.userName">
+              <label for="userName">用户名</label>
+            </span>
+    </div>
+    <button pButton type="button" label="确定" (click)="validUserName()"  class="ui-button-rounded"></button>
+  </p-dialog>
+</body>

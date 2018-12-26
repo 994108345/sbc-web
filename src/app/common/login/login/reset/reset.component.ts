@@ -4,22 +4,21 @@ import {AbstractComponent} from '../../../service/abstract.component';
 import {MessageService} from 'primeng/api';
 
 @Component({
-  selector:'app-login',
-  templateUrl: './login.main.component.html',
-  styleUrls: ['../../../../app.component.css','./login.main.component.css']
+  selector:'app-password-back',
+  templateUrl: './reset.component.html',
+  styleUrls: ['../../../../app.component.css','./reset.component.css']
 })
-export class LoginMainComponent extends AbstractComponent implements OnInit{
-
-  user:any = {};//一个用户名
+export class ResetComponent extends AbstractComponent implements OnInit{
+  /*弹出窗的布尔值*/
+  isDialog:boolean = true;
 
   /*初始化必须加，初始化基类的数据*/
   constructor(public injector:Injector){
     super(injector);
   }
 
-
   ngOnInit(){
-    console.log("登陆界面");
+    console.log("重置界面");
     /*请求后台路径*/
     this.commonUrls = {
       loginUrl:PermissionRoot + "/Login/login",
@@ -27,21 +26,17 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
     /*跳转菜单页面路径*/
     this.commonRouters = new CommonRouters("");
     this.commonRouters.menusRouter = 'menus';
-    this.commonRouters.registerRouter = 'login/register';
-    this.commonRouters.resetRouter = 'login/username';
   }
 
   /*登陆方法*/
   login(){
-    let condition = this.user;
+    let condition = null;
     this.commonService.doHttpPost(this.commonUrls.loginUrl,condition).then(rst => {
       if(rst){
         if(rst.status != successStatus){
           this.wzlAlert.error(rst.message);
         }else{
           this.wzlAlert.success("登录成功");
-          /*登陆成功时，将登陆的账号密码，存入缓存*/
-          this.wzlCache.setCache("userInfo",this.order);
           /*成功跳转菜单页面*/
           this.router.navigate([this.commonRouters.menusRouter]);
         }
@@ -51,15 +46,5 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
     }).catch(rtc =>{
       this.wzlAlert.error("http请求出现异常，请联系管理员");
     })
-  }
-
-  /*测试消息提示*/
-  register(){
-    this.router.navigate([this.commonRouters.registerRouter]);
-  }
-
-  /*找回密码*/
-  reset(){
-    this.router.navigate([this.commonRouters.resetRouter]);
   }
 }

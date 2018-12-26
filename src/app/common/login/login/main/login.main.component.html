@@ -1,4 +1,4 @@
-<body id="login-body">
+<body id="page-body">
 <!--提示信息-->
 <p-toast [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'"></p-toast>
   <div (keyup)="($event.which === 13)?login():0" style="height: 100%;">
@@ -26,6 +26,7 @@
     <div>
       <button pButton type="button" label="登陆" class="ui-button-rounded ui-button-info" (click)="login()"></button>
       <button pButton type="button" label="注册" class="ui-button-rounded ui-button-info" (click)="register()"></button>
+      <button pButton type="button" label="找回密码" class="ui-button-rounded ui-button-info" (click)="reset()"></button>
     </div>
   </div>
 </body>

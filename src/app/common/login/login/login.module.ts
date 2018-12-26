@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {LoginComponent} from './login.component';
 import {
-  ButtonModule,
+  ButtonModule, DialogModule,
   FieldsetModule,
   InputTextModule,
-  MessageService,
+  MessageService, PanelModule,
   PasswordModule
 } from 'primeng/primeng';
 import {LoginRoutingModule} from './login.routing';
@@ -17,6 +17,8 @@ import {ToastModule} from 'primeng/toast';
 import {LoginMainComponent} from './main/login.main.component';
 import {LoginRegisterComponent} from './register/login.register.component';
 import {RegisterSuccessComponent} from './registersuccess/register.success.component';
+import {ResetComponent} from './reset/reset.component';
+import {UsernameComponent} from './reset/username/username.component';
 
 @NgModule({
   imports: [
@@ -35,6 +37,10 @@ import {RegisterSuccessComponent} from './registersuccess/register.success.compo
     ToastModule,
     /*标签页*/
     FieldsetModule,
+    /*标签页*/
+    PanelModule,
+    /*弹出窗*/
+    DialogModule,
     /*login路由模块：路由模块都放在最后*/
     LoginRoutingModule
   ],
@@ -43,6 +49,8 @@ import {RegisterSuccessComponent} from './registersuccess/register.success.compo
     LoginMainComponent,
     LoginRegisterComponent,
     RegisterSuccessComponent,
+    ResetComponent,
+    UsernameComponent,
   ],
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService],
 })
