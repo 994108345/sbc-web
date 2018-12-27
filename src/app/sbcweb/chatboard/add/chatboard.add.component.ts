@@ -21,6 +21,8 @@ export class ChatboardAddComponent extends AbstractComponent{
     this.commonUrls = {
       addChatUrl :ChatboardRoot+ "/Comment/insertComment",
     };
+
+    this.commentMessage = this.wzlCache.getCache("userInfo");
   }
 
   /*跳转添加页面*/
@@ -30,10 +32,6 @@ export class ChatboardAddComponent extends AbstractComponent{
 
   /*保存记录*/
   saveComment(){
-    /**todo   */
-    this.commentMessage.userId = "wzl";
-    this.commentMessage.userName="wzl";
-    /**todo   */
     this.commonService.doHttpPost(this.commonUrls.addChatUrl,this.commentMessage).then(rtc =>{
       if(rtc){
       this.status = rtc.status;

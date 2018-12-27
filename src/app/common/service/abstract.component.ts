@@ -26,6 +26,8 @@ export class AbstractComponent implements OnDestroy{
   selectOrder:any;//选择的表单
   msgsDialog:any;//弹出窗的报错信息
 
+  userInfo:any = {};//用户信息
+
   /*后端返回信息*/
   rst:any = {dat:{},message:"",status:-10000};
 
@@ -65,11 +67,9 @@ export class AbstractComponent implements OnDestroy{
     let rows = event["rows"];
     let page = Math.floor(event["first"] / rows) + 1;
     console.log(page);
-    let condition = {
-      "curPage":page,
-      "pageSize":rows
-    }
-    return condition;
+    searchParams.curPage = page;
+    searchParams.pageSize = rows;
+    return searchParams;
   }
   /*刷新当前页*/
   refresh(){

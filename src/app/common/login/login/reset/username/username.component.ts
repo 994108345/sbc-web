@@ -2,6 +2,7 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {MessageService} from 'primeng/api';
 import {AbstractComponent} from '../../../../service/abstract.component';
 import {CommonRouters, PermissionRoot, successStatus} from '../../../../service/base/common.config';
+import {routers} from '../../../../../app.config';
 
 @Component({
   selector:'app-reset-username',
@@ -76,8 +77,8 @@ export class UsernameComponent extends AbstractComponent implements OnInit{
         if(rst.status != successStatus){
           this.wzlAlert.error(rst.message);
         }else{
-          /*成功取消弹出窗*/
-          this.isDialog = false;
+          /*将用户名存到缓存*/
+          this.wzlCache.setCache("userName",this.dialogObj.userName);
           /*查询问题集合*/
           this.queryQuestions();
         }
@@ -100,10 +101,16 @@ export class UsernameComponent extends AbstractComponent implements OnInit{
         }else{
           /*解析问题集合*/
           let questions = rst.data;
+          if(questions.size < 1){
+            this.wzlAlert.error("返回信息异常，请联系管理员");
+            return;
+          }
           this.question1 = questions[0];
           this.question2 = questions[1];
           this.questionWeb1.questionComment1 = this.question1.questionComment;
           this.questionWeb2.questionComment2 = this.question2.questionComment;
+          /*成功取消弹出窗*/
+          this.isDialog = false;
         }
       }else{
         this.wzlAlert.success("返回参数异常，请联系管理员");
@@ -135,7 +142,8 @@ export class UsernameComponent extends AbstractComponent implements OnInit{
         if(rst.status != successStatus){
           this.wzlAlert.error(rst.message);
         }else{
-         this.wzlAlert.success("成功后续")
+         this.wzlAlert.success("成功后续");
+          this.router.navigate([routers.modifyPasswordRouter]);
         }
       }else{
         this.wzlAlert.success("返回参数异常，请联系管理员");

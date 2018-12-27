@@ -41,7 +41,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
         }else{
           this.wzlAlert.success("登录成功");
           /*登陆成功时，将登陆的账号密码，存入缓存*/
-          this.wzlCache.setCache("userInfo",this.order);
+          this.wzlCache.setCache("userInfo",this.user);
           /*成功跳转菜单页面*/
           this.router.navigate([this.commonRouters.menusRouter]);
         }

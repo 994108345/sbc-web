@@ -19,6 +19,7 @@ import {LoginRegisterComponent} from './register/login.register.component';
 import {RegisterSuccessComponent} from './registersuccess/register.success.component';
 import {ResetComponent} from './reset/reset.component';
 import {UsernameComponent} from './reset/username/username.component';
+import {PasswordComponent} from './reset/password/password.component';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import {UsernameComponent} from './reset/username/username.component';
     RegisterSuccessComponent,
     ResetComponent,
     UsernameComponent,
+    PasswordComponent,
   ],
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService],
 })

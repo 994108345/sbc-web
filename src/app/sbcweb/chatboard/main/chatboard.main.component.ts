@@ -30,8 +30,8 @@ export class ChatboardMainComponent extends AbstractComponent{
     /*列名*/
     this.chatboardCols = chatboardCols_config;
 
-    /*设置查询参数*/
-    this.order = {"userName":"wzl"};
+    /*从缓存拿用户信息*/
+    this.searchParams = this.wzlCache.getCache("userInfo");
   }
 
   /*跳转添加页面*/

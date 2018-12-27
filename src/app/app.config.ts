@@ -1,0 +1,28 @@
+import {CommonRouters, PermissionRoot} from './common/service/base/common.config';
+
+
+/*请求后端路径*/
+export const urls = {
+  /*---------------登陆---------------*/
+  /*登陆请求接口*/
+  loginUrl:PermissionRoot + "/Login/login",
+  /*验证账号是否存在*/
+  validUserNameUrl:PermissionRoot + "/Reset/validUserName",
+
+  /*---------------重置密码---------------*/
+  /*查询问题集合*/
+  queryQuestionsUrl:PermissionRoot + "/Reset/queryQuestions",
+  /*验证问题集合答案对不对*/
+  validQuestionUrl:PermissionRoot + "/Reset/validQuestion",
+  /*重置密码*/
+  modifyPasswordUrl:PermissionRoot + "/Reset/modifyPassword",
+};
+
+let permissionWeb:string = '';
+
+/*跳转菜单页面路径*/
+export const routers = {
+  menusRouter: 'menus',
+  loginRouter: 'login',
+  modifyPasswordRouter:'login/password',
+};

@@ -20,8 +20,18 @@ export class WzlCacheService{
       let str = this.toJsonStr(object);
       sessionStorage.setItem(key,str)
     }
-
   }
+
+  /*删除缓存*/
+  deletCache(key:string){
+    sessionStorage.removeItem(key);
+  }
+
+  /*清空所有缓存*/
+  deleteAll(){
+    sessionStorage.clear();
+  }
+
   /*将对象转化成json字符串对象*/
   toJsonStr(obj:any){
     let jsonStr = JSON.stringify(obj);
