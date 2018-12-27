@@ -1,7 +1,6 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {PermissionRoot, CommonRouters, successStatus} from '../../../service/base/common.config';
 import {AbstractComponent} from '../../../service/abstract.component';
-import {MessageService} from 'primeng/api';
 
 @Component({
   selector:'app-password-back',
