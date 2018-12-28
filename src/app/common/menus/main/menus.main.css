@@ -2,7 +2,7 @@
 #menu_top{
   width: 100%;
   height:15%;
-  background-color: #4578C9;
+  background-color: #C5E6EF;
 }
 
 /*下层*/
@@ -31,4 +31,23 @@
   width:15%;
   z-index: 10;
   float: left;
+}
+
+.div-max{
+  height: 100%;
+}
+
+.div-half{
+  height: 50%;
+}
+
+.but-logOut{
+
+}
+
+.top-text{
+
+}
+
+.user-img{
 }

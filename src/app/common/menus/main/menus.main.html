@@ -2,8 +2,35 @@
 <body id="page-body" style="height:100%;">
 <!--提示信息-->
 <p-toast [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'"></p-toast>
-<div id="menu_top" style="">
-  <h1 style="">My hair is very healthy</h1>
+
+<div id="menu_top">
+
+  <div class="ui-g-12 div-max">
+
+    <div class="ui-g-2 ui-g-nopad div-max" style="border:1px solid red;width: 15%">
+      <div class="ui-g-12 div-max">
+        <div class="ui-g-12">
+          <img src="../../../../assets/picture/user-img.jpg" style="width:60px;height: 60px"/>
+        </div>
+        <br>
+        <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>&nbsp;
+        <span style="" class="top-text">{{userInfo.userName}}</span>
+      </div>
+    </div>
+
+    <div class="ui-g-8" style="text-align: center">
+
+    </div>
+
+    <div class="ui-g-2 ui-g-nopad div-max">
+      <div class="ui-g-12" style="height: 70%">
+      </div>
+      <div class="ui-g-12" style="text-align: right">
+        <button pButton type="button"  icon="pi pi-times" (click)="loginOut()" class="but-logOut"></button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div id="menu_bottom" style="">

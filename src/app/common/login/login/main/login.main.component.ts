@@ -2,6 +2,7 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {PermissionRoot, CommonRouters, successStatus} from '../../../service/base/common.config';
 import {AbstractComponent} from '../../../service/abstract.component';
 import {MessageService} from 'primeng/api';
+import {urls} from '../../../../app.config';
 
 @Component({
   selector:'app-login',
@@ -42,8 +43,27 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
           this.wzlAlert.success("登录成功");
           /*登陆成功时，将登陆的账号密码，存入缓存*/
           this.wzlCache.setCache("userInfo",this.user);
+          /*访问数+1*/
+          this.addAccessCount();
           /*成功跳转菜单页面*/
           this.router.navigate([this.commonRouters.menusRouter]);
+        }
+      }else{
+        this.wzlAlert.success("返回参数异常，请联系管理员");
+      }
+    }).catch(rtc =>{
+      this.wzlAlert.error("http请求出现异常，请联系管理员");
+    })
+  }
+
+  /*访问数+1*/
+  addAccessCount(){
+    let condition = {userInfo:this.user};
+    this.commonService.doHttpPost(urls.accessCountUrl,condition).then(rst => {
+      if(rst){
+        if(rst.status != successStatus){
+          this.wzlAlert.error(rst.message);
+        }else{
         }
       }else{
         this.wzlAlert.success("返回参数异常，请联系管理员");

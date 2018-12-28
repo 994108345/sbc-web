@@ -17,7 +17,6 @@ import {ToastModule} from 'primeng/toast';
 import {LoginMainComponent} from './main/login.main.component';
 import {LoginRegisterComponent} from './register/login.register.component';
 import {RegisterSuccessComponent} from './registersuccess/register.success.component';
-import {ResetComponent} from './reset/reset.component';
 import {UsernameComponent} from './reset/username/username.component';
 import {PasswordComponent} from './reset/password/password.component';
 
@@ -50,7 +49,6 @@ import {PasswordComponent} from './reset/password/password.component';
     LoginMainComponent,
     LoginRegisterComponent,
     RegisterSuccessComponent,
-    ResetComponent,
     UsernameComponent,
     PasswordComponent,
   ],

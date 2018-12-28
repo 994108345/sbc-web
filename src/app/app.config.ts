@@ -8,6 +8,8 @@ export const urls = {
   loginUrl:PermissionRoot + "/Login/login",
   /*验证账号是否存在*/
   validUserNameUrl:PermissionRoot + "/Reset/validUserName",
+  /*注销*/
+  loginOutUrl:PermissionRoot + "/Login/loginOut",
 
   /*---------------重置密码---------------*/
   /*查询问题集合*/
@@ -16,6 +18,9 @@ export const urls = {
   validQuestionUrl:PermissionRoot + "/Reset/validQuestion",
   /*重置密码*/
   modifyPasswordUrl:PermissionRoot + "/Reset/modifyPassword",
+
+  /*网站访问数+1*/
+  accessCountUrl:PermissionRoot + "/Website/addAccessCount",
 };
 
 let permissionWeb:string = '';
