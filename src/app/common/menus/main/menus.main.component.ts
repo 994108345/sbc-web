@@ -1,7 +1,7 @@
 import {Component, Injector} from '@angular/core';
 import {AbstractComponent} from '../../service/abstract.component';
 import {MenuItem} from 'primeng/api';
-import {routers, urls} from '../../../app.config';
+import {cacheKey, routers, urls} from '../../../app.config';
 import {successStatus} from '../../service/base/common.config';
 
 @Component({
@@ -55,7 +55,7 @@ export class MenusMainComponent extends AbstractComponent{
       },
     ];
     /*从缓存中拿出用户信息*/
-    this.userInfo = this.wzlCache.getCache("userInfo");
+    this.userInfo = this.wzlCache.getCache(cacheKey.userInfo);
 
   }
 

@@ -2,7 +2,7 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {PermissionRoot, CommonRouters, successStatus} from '../../../service/base/common.config';
 import {AbstractComponent} from '../../../service/abstract.component';
 import {MessageService} from 'primeng/api';
-import {urls} from '../../../../app.config';
+import {cacheKey, urls} from '../../../../app.config';
 
 @Component({
   selector:'app-login',
@@ -42,7 +42,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
         }else{
           this.wzlAlert.success("登录成功");
           /*登陆成功时，将登陆的账号密码，存入缓存*/
-          this.wzlCache.setCache("userInfo",this.user);
+          this.wzlCache.setCache(cacheKey.userInfo,rst.data);
           /*访问数+1*/
           this.addAccessCount();
           /*成功跳转菜单页面*/

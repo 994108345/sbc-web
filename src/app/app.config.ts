@@ -31,3 +31,7 @@ export const routers = {
   loginRouter: 'login',
   modifyPasswordRouter:'login/password',
 };
+
+export const cacheKey = {
+  userInfo:'userInfo',
+}
