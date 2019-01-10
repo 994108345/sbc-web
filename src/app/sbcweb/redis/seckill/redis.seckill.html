@@ -1,0 +1,24 @@
+<div id="chatboard" class="page">
+  <h3>秒杀</h3>
+  <div>
+    <button pButton type="button" label="开始秒杀" (click)="secKill()"  class="ui-button-rounded"></button>
+  </div>
+  <div>
+    <p-table [columns]="seckillCols" [value]="orders">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

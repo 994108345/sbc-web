@@ -46,6 +46,16 @@ export class MenusMainComponent extends AbstractComponent{
         ]
       },
       {
+        label: "Redis",
+        icon: 'pi pi-pw pi-file',
+        items: [{
+          label: '秒杀',
+          icon: 'pi pi-fw pi-plus',
+          routerLink:'redis/seckill'
+        },
+        ]
+      },
+      {
         label: "demo",
         icon: 'pi pi-pw pi-file',
       },

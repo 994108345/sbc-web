@@ -11,6 +11,10 @@ module.exports =
   "/sbc-chatboard": {
     "target": "http://localhost:7012",
     "secure": false,
-  }
+  },
+  "/sbc-redis": {
+    "target": "http://localhost:7013",
+    "secure": false,
+  },
 }
 

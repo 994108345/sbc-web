@@ -1,5 +1,6 @@
 import {CommonRouters, PermissionRoot} from './common/service/base/common.config';
 
+export const RedisdRoot = "/sbc-redis";
 
 /*请求后端路径*/
 export const urls = {
@@ -21,6 +22,10 @@ export const urls = {
 
   /*网站访问数+1*/
   accessCountUrl:PermissionRoot + "/Website/addAccessCount",
+
+  /*-------------------redis-------------------*/
+  /*秒杀*/
+  seckillUrl:RedisdRoot + "/SecKill/beginKill",
 };
 
 let permissionWeb:string = '';

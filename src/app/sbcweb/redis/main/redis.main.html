@@ -1,0 +1,27 @@
+<div id="chatboard" class="page">
+  <h3>树洞</h3>
+  <div class="tools-bar">
+    <button pButton type="button" label="新增" (click)="routerAddChat()"  class="ui-button-rounded"></button>
+  </div>
+  <div>
+    <p-table [columns]="chatboardCols" [value]="orders" [lazy]="true" (onLazyLoad)="loadData($event)" [paginator]="true"
+             [rows]="10" [totalRecords]="totalRecords">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
+</div>

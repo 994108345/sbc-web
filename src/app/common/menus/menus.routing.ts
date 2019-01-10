@@ -12,6 +12,7 @@ const menuRoutes: Routes = [
     component: MenusMainComponent,
     children: [
       {path: 'chatboard', loadChildren: 'src/app/sbcweb/chatboard/chatboard.module#ChatboardModule'},
+      {path: 'redis', loadChildren: 'src/app/sbcweb/redis/redis.module#RedisModule'},
     ]
   }
 ];
