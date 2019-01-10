@@ -2,6 +2,7 @@
   <h3>秒杀</h3>
   <div>
     <button pButton type="button" label="开始秒杀" (click)="secKill()"  class="ui-button-rounded"></button>
+    <button pButton type="button" label="初始数据" (click)="reset()"  class="ui-button-rounded"></button>
   </div>
   <div>
     <p-table [columns]="seckillCols" [value]="orders">

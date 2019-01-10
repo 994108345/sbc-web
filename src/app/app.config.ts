@@ -26,6 +26,7 @@ export const urls = {
   /*-------------------redis-------------------*/
   /*秒杀*/
   seckillUrl:RedisdRoot + "/SecKill/beginKill",
+  resetUrl:RedisdRoot + "/SecKill/resetSeckill",
 };
 
 let permissionWeb:string = '';

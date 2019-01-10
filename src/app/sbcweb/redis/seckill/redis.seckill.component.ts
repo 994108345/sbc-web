@@ -33,6 +33,30 @@ export class RedisSeckillComponent extends AbstractComponent{
         }else{
           this.wzlAlert.success("秒杀成功");
           this.orders = rst.data;
+          for (let order of this.orders) {
+            order.userName = order.userInfo.userName;
+            console.log(order);
+          }
+        }
+      }else{
+        this.wzlAlert.success("返回参数异常，请联系管理员");
+      }
+    }).catch(rtc =>{
+      this.wzlAlert.error("http请求出现异常，请联系管理员");
+    })
+  }
+
+  /**
+   * 重置数据
+   */
+  reset(){
+    let condition = {};
+    this.commonService.doHttpPost(urls.resetUrl,condition).then(rst => {
+      if(rst){
+        if(rst.status != successStatus){
+          this.wzlAlert.error(rst.message);
+        }else{
+          this.wzlAlert.success("重置成功");
         }
       }else{
         this.wzlAlert.success("返回参数异常，请联系管理员");
