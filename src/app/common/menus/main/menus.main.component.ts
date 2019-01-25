@@ -26,34 +26,29 @@ export class MenusMainComponent extends AbstractComponent{
 
     this.items = [
       {
-        label: "用户管理",
+        label: "商品案例",
         icon: 'pi pi-pw pi-file',
         items: [{
-          label: '用户信息',
+          label: '商品管理',
           icon: 'pi pi-fw pi-plus',
           routerLink:'rolemanage'
         },
         ]
       },
       {
-        label: "LHB",
+        label: "测试案例",
         icon: 'pi pi-pw pi-file',
         items: [{
           label: '树洞',
           icon: 'pi pi-fw pi-plus',
           routerLink:'chatboard'
-        },
+        }, {
+            label: '秒杀',
+            icon: 'pi pi-fw pi-plus',
+            routerLink:'redis/seckill'
+          },
         ]
-      },
-      {
-        label: "Redis",
-        icon: 'pi pi-pw pi-file',
-        items: [{
-          label: '秒杀',
-          icon: 'pi pi-fw pi-plus',
-          routerLink:'redis/seckill'
-        },
-        ]
+
       },
       {
         label: "demo",
