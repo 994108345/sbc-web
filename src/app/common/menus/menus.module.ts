@@ -19,6 +19,7 @@ import {WzlCacheService} from '../service/wzlcache/wzlceche.service';
 import {WzlAlertService} from '../service/wzlalert/wzlalert.service';
 import {MenusMainComponent} from './main/menus.main.component';
 import {IndexComponent} from './index/index.component';
+import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 
 @NgModule({
   imports: [
@@ -39,6 +40,8 @@ import {IndexComponent} from './index/index.component';
     ToastModule,
     /*菜单列表模块*/
     MenuModule,
+    /** 导入 ng-zorro-antd 模块 **/
+    NgZorroAntdModule,
     PanelMenuModule,
     /*login路由模块：路由模块都放在最后*/
     MenusRouterModule,
@@ -47,7 +50,8 @@ import {IndexComponent} from './index/index.component';
     MenusComponent,
     MenusMainComponent,
   ],
-  providers: [CommonService,WzlAlertService,WzlCacheService,MessageService],
+  /** 配置 ng-zorro-antd 国际化 **/
+  providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN }],
 })
 export class MenusModule {
 

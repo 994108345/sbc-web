@@ -1,5 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
+import {BrandComponent} from './brand.component';
+import {BrandMainComponent} from './main/brand.main.component';
 
 
 export const BrandRoutes: Routes = [
@@ -7,8 +9,7 @@ export const BrandRoutes: Routes = [
     path: '',
     component: BrandComponent,
     children:[
-      {path:'seckill',component: RedisSeckillComponent},
-      {path:'',component: RedisMainComponent},
+      {path:'',component: BrandMainComponent},
     ],
   },
 ];
