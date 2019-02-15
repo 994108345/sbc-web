@@ -16,5 +16,9 @@ module.exports =
     "target": "http://localhost:7013",
     "secure": false,
   },
+  "/sbc-prod": {
+    "target": "http://localhost:7014",
+    "secure": false,
+  },
 }
 

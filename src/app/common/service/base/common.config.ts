@@ -5,6 +5,8 @@ import {Message} from 'primeng/api';
 
 export const  PermissionRoot = "/sbc-permission";
 export const  ChatboardRoot = "/sbc-chatboard";
+export const  ProdRoot = "/sbc-prod";
+
 
 //前台项目名
 export const  BaseRoot = "/app";

@@ -12,9 +12,13 @@ export const appRoutes: Routes = [
     loadChildren: 'src/app/common/login/login/login.module#LoginModule',
   },
   {
+    path: 'web',
+    loadChildren: 'src/app/website/menu/webmenu.module#WebMenuModule',
+  },
+  {
     path: '**',
-    redirectTo:'/login',
-  }
+    redirectTo:'/web',
+  },
 ];
 
 @NgModule({

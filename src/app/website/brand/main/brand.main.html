@@ -1,0 +1,36 @@
+<nz-table #nzTable [nzData]="dataSet"  [nzScroll]="{ x:'90%',y: '90%' }"  [nzTitle]="'品牌管理'"
+          [nzShowSizeChanger]="true" [nzPageSize]="10" [nzTotal]="totalRecords"
+>
+  <thead>
+    <tr>
+      <th nzWidth="100px" nzLeft="0px">id</th>
+      <th>品牌编码</th>
+      <th>品牌名字</th>
+      <th>spu编码</th>
+      <th>状态</th>
+      <th>创建人</th>
+      <th>创建时间</th>
+      <th>最后修改人</th>
+      <th>最后修改时间</th>
+      <th>备注</th>
+      <th nzWidth="100px" nzRight="0px">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of nzTable.data">
+      <td nzLeft="0px">{{data.id}}</td>
+      <td>{{data.brandCode}}</td>
+      <td>{{data.brandName}}</td>
+      <td>{{data.spuCode}}</td>
+      <td>{{data.status}}</td>
+      <td>{{data.createUser}}</td>
+      <td>{{data.createTime}}</td>
+      <td>{{data.lastModifiedUser}}</td>
+      <td>{{data.lastModifiedTime}}</td>
+      <td>{{data.remark}}</td>
+      <td nzRight="0px">
+        <a>action</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
