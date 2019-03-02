@@ -1,36 +1,55 @@
-<nz-table #nzTable [nzData]="dataSet"  [nzScroll]="{ x:'90%',y: '90%' }"  [nzTitle]="'品牌管理'"
-          [nzShowSizeChanger]="true" [nzPageSize]="10" [nzTotal]="totalRecords"
+<nz-breadcrumb  style="margin:16px 0;" [nzAutoGenerate]="true">
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/brand']">品牌</a>
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-content style="">
+  <!--<div nz-row nzType="flex" nzJustify="end">-->
+    <!--<div nz-col nzSpan="2"><button nz-button nzType="default" (click)="addBrand()">新增</button></div>-->
+    <!--<div nz-col nzSpan="2"><button nz-button nzType="default">编辑</button></div>-->
+  <!--</div>-->
+</nz-content>
+<nz-table #nzTable nzShowSizeChanger [nzData]="dataSet"    [nzTitle]="'品牌管理'" [nzShowPagination] = "false"
+          [nzTotal]="totalRecords" [nzBordered]="true" [nzPageSize]="nzPageSize"
+          (nzCurrentPageDataChange)="currentPageDataChange($event)"
 >
-  <thead>
+  <!-- [nzPageSize]="nzPageSize"
+          (nzPageIndexChange)="indexChange($event)" [nzShowSizeChanger]="true" [nzShowQuickJumper]="true"
+          (nzPageSizeChange)="sizeChange($event)"-->
+  <thead style="text-align: center">
     <tr>
-      <th nzWidth="100px" nzLeft="0px">id</th>
-      <th>品牌编码</th>
-      <th>品牌名字</th>
-      <th>spu编码</th>
-      <th>状态</th>
-      <th>创建人</th>
-      <th>创建时间</th>
-      <th>最后修改人</th>
-      <th>最后修改时间</th>
-      <th>备注</th>
-      <th nzWidth="100px" nzRight="0px">Action</th>
+      <th nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked" [nzIndeterminate]="isIndeterminate" (nzCheckedChange)="checkAll($event)"></th>
+      <th nzWidth="80px">id</th>
+      <th nzWidth="150px">品牌编码</th>
+      <th nzWidth="80px">品牌名字</th>
+      <th nzWidth="80px">状态</th>
+      <th nzWidth="80px">创建人</th>
+      <th nzWidth="150px">创建时间</th>
+      <th nzWidth="80px">最后修改人</th>
+      <th nzWidth="150px">最后修改时间</th>
+      <th nzWidth="150px">备注</th>
+      <th nzWidth="150px">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of nzTable.data">
-      <td nzLeft="0px">{{data.id}}</td>
+      <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus()"></td>
+      <td>{{data.id}}</td>
       <td>{{data.brandCode}}</td>
       <td>{{data.brandName}}</td>
-      <td>{{data.spuCode}}</td>
       <td>{{data.status}}</td>
       <td>{{data.createUser}}</td>
-      <td>{{data.createTime}}</td>
+      <td>{{ data.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
       <td>{{data.lastModifiedUser}}</td>
-      <td>{{data.lastModifiedTime}}</td>
+      <td>{{ data.lastModifiedTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
       <td>{{data.remark}}</td>
-      <td nzRight="0px">
-        <a>action</a>
-      </td>
+      <td><a (click)="editBrand(data,true)">编辑</a> &nbsp; <a (click)="editBrand(data,false)">查看</a></td>
     </tr>
   </tbody>
 </nz-table>
+<nz-pagination [nzPageIndex]="nzPageIndex" [nzTotal]="totalRecords" [nzPageSize]="nzPageSize"
+               (nzPageIndexChange)="indexChange($event)" [nzShowSizeChanger]="true"
+               (nzPageSizeChange)="sizeChange($event)"
+               nzShowSizeChanger nzShowQuickJumper
+></nz-pagination>

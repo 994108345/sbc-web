@@ -9,6 +9,7 @@ import {WzlCacheService} from './common/service/wzlcache/wzlceche.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {MenusModule} from './common/menus/menus.module';
+import {MomentModule} from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,6 @@ import {MenusModule} from './common/menus/menus.module';
     HttpClientModule,
     /** 导入 ng-zorro-antd 模块 **/
     NgZorroAntdModule,
-
     /*自己建的路由模块*/
     AppRoutingModule,
 

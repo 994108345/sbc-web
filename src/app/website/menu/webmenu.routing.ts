@@ -18,6 +18,10 @@ const menuRoutes: Routes = [
         path: 'brand',
         loadChildren: 'src/app/website/brand/brand.module#BrandModule',
       },
+      {
+        path: 'demo',
+        loadChildren: 'src/app/website/demo/demo.module#DemoModule',
+      },
     ]
   },
 ];

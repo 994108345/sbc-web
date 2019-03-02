@@ -4,6 +4,21 @@ export const RedisdRoot = "/sbc-redis";
 
 /*请求后端路径*/
 export const urls = {
+  /*-----------------------------------基础路径-------------------------------*/
+  // 新增url
+  addUrl:"",
+  // 修改url
+  editUrl:"",
+  // 删除url
+  deleteUrl:"",
+  // 查询url
+  queryUrl:"",
+  // 查看明细url
+  detailUrl:"",
+  // 重传url
+  retryUrl:"",
+  // 下载url
+  downUrl:"",
   /*---------------登陆-------------------------------------------------------*/
   /*登陆请求接口*/
   loginUrl:PermissionRoot + "/Login/login",
@@ -30,7 +45,10 @@ export const urls = {
 
   /*---------------品牌-------------------------------------------*/
   //查询品牌信息
-  queryBrandUrl:ProdRoot + "/ProdBrandManage/query-brand-page",
+  queryBrandByPageUrl:ProdRoot + "/ProdBrandManage/query-brand-page",
+  queryBrandByParamUrl:ProdRoot + "/ProdBrandManage/query-one-brand",
+  addBrandUtl:ProdRoot + "/ProdBrandManage/insert-brand",
+  updateBrandUtl:ProdRoot + "/ProdBrandManage/update-brand",
 };
 
 let permissionWeb:string = '';
@@ -41,6 +59,13 @@ export const routers = {
   loginRouter: 'login',
   modifyPasswordRouter:'login/password',
   indexRouter:'web/index',
+  /*品牌*/
+  brandAddRouter:'web/brand/add',
+  brandEditRouter:'web/brand/edit',
+  brandViewRouter:'web/brand/view',
+  brandRouter:'web/brand',
+  /*范例*/
+  demoAddRouter:'web/demo/add',
 };
 
 export const cacheKey = {

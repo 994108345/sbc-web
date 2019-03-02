@@ -1,19 +1,27 @@
-import {Component, Injector} from '@angular/core';
-import {urls} from '../../../app.config';
+import {Component, Injector, ViewChild} from '@angular/core';
+import {routers, urls} from '../../../app.config';
 import {AbstractComponent} from '../../../common/service/abstract.component';
 import {successStatus} from '../../../common/service/base/common.config';
 import {brand_field} from '../brand.config';
 
 @Component({
-  selector: 'web-menus',
+  selector: 'brand-main',
   templateUrl: './brand.main.html',
   styleUrls: ['./brand.main.css']
 })
+
 export class BrandMainComponent extends AbstractComponent{
-  //数据
-  dataSet = [];
+  @ViewChild('nzTable') table: any;
+
   //标题
   brandFields = [];
+
+  displayData = []; 
+
+  /*前端选择框*/
+  allChecked:boolean = false;
+  indeterminate:boolean = false;
+
 
   /*初始化必须加，初始化基类的数据*/
   constructor(public injector:Injector){
@@ -23,33 +31,34 @@ export class BrandMainComponent extends AbstractComponent{
 
   ngOnInit() {
     console.log("品牌管理界面");
-
     /*初始化字段*/
     this.brandFields = brand_field;
-
+    /*初始化路径*/
+    urls.queryUrl = urls.queryBrandByPageUrl;
     /*查询*/
-    this.queryBrand();
-
+    this.queryBySearchParam();
   }
 
-  /*查询*/
-  queryBrand(){
-    let condition ={};
-    this.commonService.doHttpPost(urls.queryBrandUrl,condition).then(rst => {
-      if(rst){
-        if(rst.status != successStatus){
-          this.wzlAlert.error(rst.message);
-        }else{
-          this.wzlAlert.success("查询成功");
-          this.dataSet = rst.data;
-          this.totalRecords = rst.totalRecords;
-        }
-      }else{
-        this.wzlAlert.success("返回参数异常，请联系管理员");
-      }
-    }).catch(rtc =>{
-      this.wzlAlert.error("http请求出现异常，请联系管理员");
-    })
+  /**
+   * 新增品牌
+   */
+  addBrand(){
+    if(routers.brandAddRouter){
+      this.router.navigate([routers.brandAddRouter]);
+    }else{
+      this.wzlNgZorroAntdMessage.error("新增品牌路由没有配置")
+    }
   }
 
+  /*跳到编辑页面*/
+  editBrand(data,isEdit){
+    this.wzlCache.setCache("brand",data);
+    if(isEdit){
+      this.wzlCache.setCache("isEdit",true);
+      this.router.navigate([routers.brandEditRouter]);
+    }else{
+      this.wzlCache.setCache("isEdit",false);
+      this.router.navigate([routers.brandViewRouter]);
+    }
+  }
 }

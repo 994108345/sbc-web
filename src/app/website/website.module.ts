@@ -21,6 +21,7 @@ import {BrandModule} from './brand/brand.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
+import {DemoModule} from './demo/demo.module';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import {CommonModule} from '@angular/common';
     WebMenuModule,
     IndexModule,
     BrandModule,
+    DemoModule,
   ],
   declarations: [
   ],
