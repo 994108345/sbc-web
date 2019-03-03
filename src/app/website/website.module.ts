@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import {DemoModule} from './demo/demo.module';
+import {StudynoteModule} from './studynote/studynote.module';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {DemoModule} from './demo/demo.module';
     WebMenuModule,
     IndexModule,
     BrandModule,
+    StudynoteModule,
     DemoModule,
   ],
   declarations: [
