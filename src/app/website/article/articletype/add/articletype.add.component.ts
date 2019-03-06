@@ -23,7 +23,7 @@ export class ArticletypeAddComponent extends AbstractComponent{
     /*初始化参数*/
     this.ordersInfo = this.fb.group({
       articleName: [ null, [ Validators.required ] ],
-      status: [ 1, [ Validators.required ] ],
+      status: [ '1', [ Validators.required ] ],
       remark: [ null],
     });
   }

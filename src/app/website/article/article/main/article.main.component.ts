@@ -1,15 +1,16 @@
 import {Component, Injector} from '@angular/core';
 import {BreadcrumbOption} from 'ng-zorro-antd';
 import {Params} from '@angular/router';
-import {routers} from '../../../../app.config';
+import {routers, urls} from '../../../../app.config';
 import {AbstractComponent} from '../../../../common/service/abstract.component';
 
 @Component({
   selector: 'stody-note',
-  templateUrl: './studynote.main.html',
-  styleUrls: ['./studynote.main.css']
+  templateUrl: './article.main.html',
+  styleUrls: ['./article.main.css']
 })
-export class StudynoteMainComponent extends AbstractComponent{
+export class ArticleMainComponent extends AbstractComponent{
+
 
   /*初始化必须加，初始化基类的数据*/
   constructor(public injector:Injector){
@@ -19,28 +20,32 @@ export class StudynoteMainComponent extends AbstractComponent{
 
   ngOnInit(){
     console.log("学习笔记界面");
+    /*初始化路径*/
+    urls.queryUrl = urls.queryArticleTypeUrl;
+    /*查询*/
+    this.queryBySearchParam();
   }
 
   /**
    * 新增品牌
    */
-  addBrand(){
-    if(routers.brandAddRouter){
-      this.router.navigate([routers.brandAddRouter]);
+  addArticle(){
+    if(routers.articleAddRouter){
+      this.router.navigate([routers.articleAddRouter]);
     }else{
       this.wzlNgZorroAntdMessage.error("新增品牌路由没有配置")
     }
   }
 
   /*跳到编辑页面*/
-  editBrand(data,isEdit){
-    this.wzlCache.setCache("brand",data);
+  editArticleType(data,isEdit){
+    this.wzlCache.setCache("articleType",data);
     if(isEdit){
       this.wzlCache.setCache("isEdit",true);
-      this.router.navigate([routers.brandEditRouter]);
+      this.router.navigate([routers.articleTypeEditRouter]);
     }else{
       this.wzlCache.setCache("isEdit",false);
-      this.router.navigate([routers.brandViewRouter]);
+      this.router.navigate([routers.articleTypeViewRouter]);
     }
   }
 }

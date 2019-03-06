@@ -23,7 +23,7 @@ export class BrandAddComponent extends AbstractComponent{
     /*初始化参数*/
     this.brandInfo = this.fb.group({
       brandName: [ null, [ Validators.required ] ],
-      status: [ null, [ Validators.required ] ],
+      status: [ '1', [ Validators.required ] ],
       remark: [ null],
     });
   }

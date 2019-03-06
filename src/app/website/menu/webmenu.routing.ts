@@ -23,8 +23,8 @@ const menuRoutes: Routes = [
         loadChildren: 'src/app/website/demo/demo.module#DemoModule',
       },
       {
-        path: 'studynote',
-        loadChildren: 'src/app/website/article/studynote/studynote.module#StudynoteModule',
+        path: 'article',
+        loadChildren: 'src/app/website/article/article/article.module#ArticleModule',
       },
       {
         path: 'articletype',

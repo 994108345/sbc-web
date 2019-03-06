@@ -13,7 +13,7 @@ import {WzlCacheService} from '../../../common/service/wzlcache/wzlceche.service
 import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
 import {ArticletypeComponent} from './articletype.component';
 import {ArticletypeMainComponent} from './main/articletype.main.component';
-import {StudynoteRouter} from '../studynote/studynote.router';
+import {ArticleRouter} from '../article/article.router';
 import {ArticletypeRouter} from './articletype.router';
 import {ArticletypeAddComponent} from './add/articletype.add.component';
 import {ArticletypeEditComponent} from './edit/articletype.edit.component';

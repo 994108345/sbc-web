@@ -18,7 +18,7 @@ export class ArticletypeMainComponent extends AbstractComponent{
 
 
   ngOnInit(){
-    console.log("学习笔记界面");
+    console.log("文章类型界面");
     /*初始化路径*/
     urls.queryUrl = urls.queryArticleTypeUrl;
     /*查询*/

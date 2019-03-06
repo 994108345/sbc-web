@@ -68,11 +68,16 @@ export const routers = {
   brandEditRouter:'web/brand/edit',
   brandViewRouter:'web/brand/view',
   brandRouter:'web/brand',
-  /*文章*/
+  /*文章类型*/
   articleTypeAddRouter:'web/articletype/add',
   articleTypeEditRouter:'web/articletype/edit',
   articleTypeViewRouter:'web/articletype/view',
   articleTypeRouter:'web/articletype',
+  /*文章*/
+  articleAddRouter:'web/article/add',
+  articleEditRouter:'web/article/edit',
+  articleViewRouter:'web/article/view',
+  articleRouter:'web/article',
 
   /*范例*/
   demoAddRouter:'web/demo/add',

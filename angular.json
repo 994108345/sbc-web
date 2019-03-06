@@ -35,9 +35,12 @@
               "./node_modules/primeicons/primeicons.css",
               "./node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              /*引入quill富文本编辑器*/
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.snow.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["./node_modules/quill/dist/quill.js"]
           },
           "configurations": {
             "production": {

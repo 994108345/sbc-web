@@ -15,7 +15,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import {DemoModule} from './demo/demo.module';
 import {ArticletypeModule} from './article/articletype/articletype.module';
-import {StudynoteModule} from './article/studynote/studynote.module';
+import {ArticleModule} from './article/article/article.module';
 
 @NgModule({
   imports: [
@@ -30,7 +30,7 @@ import {StudynoteModule} from './article/studynote/studynote.module';
     WebMenuModule,
     IndexModule,
     BrandModule,
-    StudynoteModule,
+    ArticleModule,
     ArticletypeModule,
     DemoModule,
   ],

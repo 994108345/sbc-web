@@ -8,13 +8,15 @@ import {CommonModule, registerLocaleData} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import zh from '@angular/common/locales/zh';
-import {StudynoteMainComponent} from './main/studynote.main.component';
-import {StudynoteComponent} from './studynote.component';
-import {StudynoteRouter} from './studynote.router';
+import {ArticleMainComponent} from './main/article.main.component';
+import {ArticleComponent} from './article.component';
+import {ArticleRouter} from './article.router';
 import {CommonService} from '../../../common/service/base/common.service';
 import {WzlAlertService} from '../../../common/service/wzlalert/wzlalert.service';
 import {WzlCacheService} from '../../../common/service/wzlcache/wzlceche.service';
 import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
+import {ArticleAddComponent} from './add/article.add.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 registerLocaleData(zh);
 @NgModule({
   imports: [
@@ -27,14 +29,15 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     /*富文本编辑器*/
     EditorModule,
-    StudynoteRouter
+    CKEditorModule,
+    ArticleRouter
   ],
   declarations: [
-    StudynoteMainComponent,StudynoteComponent,
+    ArticleMainComponent,ArticleComponent,ArticleAddComponent
   ],
   /** 配置 ng-zorro-antd 国际化 **/
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService],
 })
-export class StudynoteModule {
+export class ArticleModule {
 
 }

@@ -1,4 +1,4 @@
-import {Injector, OnDestroy} from '@angular/core';
+import {ElementRef, Injector, OnDestroy} from '@angular/core';
 import {ConfirmationService, DataTable, LazyLoadEvent, Message} from 'primeng/primeng';
 import {CommonService} from './base/common.service';
 import {WzlAlertService} from '../service/wzlalert/wzlalert.service';
@@ -43,6 +43,7 @@ export class AbstractComponent implements OnDestroy {
   tabName:string = "";//窗体tab的名称
   isEdit:boolean = false;//是否为编辑页面
   ordersInfo: FormGroup;//表单验证实体
+
   /*-----------------单选框--------------------------*/
   isAllDisplayDataChecked = false;
   isOperating = false;
@@ -50,7 +51,11 @@ export class AbstractComponent implements OnDestroy {
   listOfAllData = [];
   mapOfCheckedId = {};
   numberOfChecked = 0;
-
+  /*===================tag================================*/
+  tags = [  ];
+  inputVisible = false;
+  inputValue = '';
+  inputElement: ElementRef;
 
   /*后端返回信息*/
   rst: any = {dat: {}, message: '', status: -10000};
@@ -344,6 +349,31 @@ export class AbstractComponent implements OnDestroy {
       this.refreshStatus();
       this.isOperating = false;
     }, 1000);
+  }
+
+  /*--------小tag-----------*/
+  handleClose(removedTag: {}): void {
+    this.tags = this.tags.filter(tag => tag !== removedTag);
+  }
+
+  sliceTagName(tag: string): string {
+    const isLongTag = tag.length > 20;
+    return isLongTag ? `${tag.slice(0, 20)}...` : tag;
+  }
+
+  showInput(): void {
+    this.inputVisible = true;
+    setTimeout(() => {
+      this.inputElement.nativeElement.focus();
+    }, 10);
+  }
+
+  handleInputConfirm(): void {
+    if (this.inputValue && this.tags.indexOf(this.inputValue) === -1) {
+      this.tags = [ ...this.tags, this.inputValue ];
+    }
+    this.inputValue = '';
+    this.inputVisible = false;
   }
 
 }

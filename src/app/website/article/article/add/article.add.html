@@ -1,0 +1,99 @@
+<nz-breadcrumb  style="margin:16px 0;" [nzAutoGenerate]="true">
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/web/articletype/']">文章类型</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/web/articletype/add']">新增</a>
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-tabset>
+  <nz-tab nzTitle="新增">
+    <!--<ckeditor [(ngModel)]="ckeditorContent" debounce="500"  [config]="config"></ckeditor>-->
+    <ckeditor ></ckeditor>
+    <form nz-form [formGroup]="ordersInfo" (ngSubmit)="validAddBrandInfo()">
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="2" [nzXs]="24" nzFor="content" nzRequired>
+          <span>
+            内容
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="22" [nzXs]="24">
+          <!--<p-editor formControlName="content"  id="content" [style]="{'height':'320px'}"></p-editor>-->
+          <!--<input nz-input id="content" formControlName="content">-->
+          <nz-form-explain *ngIf="ordersInfo.get('content').dirty && ordersInfo.get('content').errors">请输入内容</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="articleName" nzRequired>
+          <span>
+            标题
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="articleType" formControlName="articleName">
+          <nz-form-explain *ngIf="ordersInfo.get('articleName').dirty && ordersInfo.get('articleName').errors">请输入标题</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="articleName" nzRequired>
+          <span>
+            标签
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-tag *ngFor="let tag of tags; let i = index;" [nzMode]="i === 0 ? 'default' : 'closeable'" (nzAfterClose)="handleClose(tag)" id="tags" formControlName="tags">
+            {{ sliceTagName(tag) }}
+          </nz-tag>
+          <nz-tag *ngIf="!inputVisible" class="editable-tag" nzNoAnimation (click)="showInput()">
+            <i nz-icon type="plus"></i> New Tag
+          </nz-tag>
+          <input #inputElement nz-input nzSize="small"  *ngIf="inputVisible" type="text" [(ngModel)]="inputValue" style="width: 78px;" (blur)="handleInputConfirm()"  (keydown.enter)="handleInputConfirm()">
+          <nz-form-explain *ngIf="ordersInfo.get('tags').dirty && ordersInfo.get('tags').errors">请输入标签</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired >类型</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-select formControlName="articleType">
+              <nz-option [nzValue]=data.value [nzLabel]=data.label *ngFor="let data of articleTypeSelect"></nz-option>
+          </nz-select>
+          <nz-form-explain *ngIf="ordersInfo.get('articleType').dirty && ordersInfo.get('articleType').errors">请选择一个类型</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired >状态</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-select formControlName="status">
+            <nz-option nzValue="0" nzLabel="禁用"></nz-option>
+            <nz-option nzValue="1" nzLabel="启用"></nz-option>
+          </nz-select>
+          <nz-form-explain *ngIf="ordersInfo.get('status').dirty && ordersInfo.get('status').errors">请选择一个状态</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="remark">
+          <span>
+           备注
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="remark" formControlName="remark">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary">新增</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-tab>
+</nz-tabset>
