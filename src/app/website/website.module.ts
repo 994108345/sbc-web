@@ -1,17 +1,9 @@
 import {NgModule} from '@angular/core';
 import {
-  ButtonModule,
-  InputTextModule,
-  MenuModule,
-  MessageModule,
   MessageService,
-  MessagesModule,
-  PanelMenuModule,
-  PasswordModule
 } from 'primeng/primeng';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ToastModule} from 'primeng/toast';
+import {FormsModule} from '@angular/forms';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {IndexModule} from './index/index.module';
 import {CommonService} from '../common/service/base/common.service';
@@ -22,7 +14,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import {DemoModule} from './demo/demo.module';
-import {StudynoteModule} from './studynote/studynote.module';
+import {ArticletypeModule} from './article/articletype/articletype.module';
+import {StudynoteModule} from './article/studynote/studynote.module';
 
 @NgModule({
   imports: [
@@ -38,6 +31,7 @@ import {StudynoteModule} from './studynote/studynote.module';
     IndexModule,
     BrandModule,
     StudynoteModule,
+    ArticletypeModule,
     DemoModule,
   ],
   declarations: [

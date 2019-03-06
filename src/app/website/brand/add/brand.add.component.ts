@@ -35,13 +35,13 @@ export class BrandAddComponent extends AbstractComponent{
       this.brandInfo.controls[ i ].updateValueAndValidity();
     }
     if(this.brandInfo.valid){
-
+      this.addBrandById();
     }
   }
   /*添加品牌*/
-  queryBrandById(){
+  addBrandById(){
       let condition =this.brandInfo.value;
-      this.commonService.doHttpPost(urls.queryBrandByPageUrl,condition).then(rst => {
+      this.commonService.doHttpPost(urls.addBrandUtl,condition).then(rst => {
         if(rst){
           if(rst.status != successStatus){
             this.wzlNgZorroAntdMessage.error(rst.message);

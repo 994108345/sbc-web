@@ -49,6 +49,10 @@ export const urls = {
   queryBrandByParamUrl:ProdRoot + "/ProdBrandManage/query-one-brand",
   addBrandUtl:ProdRoot + "/ProdBrandManage/insert-brand",
   updateBrandUtl:ProdRoot + "/ProdBrandManage/update-brand",
+  /*-------------------文章类型------------------------------------------*/
+  queryArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/queryArticleTypeByPage",
+  updateArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/updateArticleTypeById",
+  insertArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/insertOneArticleType",
 };
 
 let permissionWeb:string = '';
@@ -64,6 +68,12 @@ export const routers = {
   brandEditRouter:'web/brand/edit',
   brandViewRouter:'web/brand/view',
   brandRouter:'web/brand',
+  /*文章*/
+  articleTypeAddRouter:'web/articletype/add',
+  articleTypeEditRouter:'web/articletype/edit',
+  articleTypeViewRouter:'web/articletype/view',
+  articleTypeRouter:'web/articletype',
+
   /*范例*/
   demoAddRouter:'web/demo/add',
 };

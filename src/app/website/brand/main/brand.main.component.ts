@@ -31,8 +31,6 @@ export class BrandMainComponent extends AbstractComponent{
 
   ngOnInit() {
     console.log("品牌管理界面");
-    /*初始化字段*/
-    this.brandFields = brand_field;
     /*初始化路径*/
     urls.queryUrl = urls.queryBrandByPageUrl;
     /*查询*/

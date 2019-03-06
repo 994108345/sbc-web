@@ -5,10 +5,10 @@
 </nz-breadcrumb>
 
 <nz-content style="">
-  <!--<div nz-row nzType="flex" nzJustify="end">-->
-    <!--<div nz-col nzSpan="2"><button nz-button nzType="default" (click)="addBrand()">新增</button></div>-->
+  <div nz-row nzType="flex" nzJustify="end">
+    <div nz-col nzSpan="2"><button nz-button nzType="default" (click)="addBrand()">新增</button></div>
     <!--<div nz-col nzSpan="2"><button nz-button nzType="default">编辑</button></div>-->
-  <!--</div>-->
+  </div>
 </nz-content>
 <nz-table #nzTable nzShowSizeChanger [nzData]="dataSet"    [nzTitle]="'品牌管理'" [nzShowPagination] = "false"
           [nzTotal]="totalRecords" [nzBordered]="true" [nzPageSize]="nzPageSize"

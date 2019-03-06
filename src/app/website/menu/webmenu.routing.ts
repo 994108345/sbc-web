@@ -24,7 +24,11 @@ const menuRoutes: Routes = [
       },
       {
         path: 'studynote',
-        loadChildren: 'src/app/website/studynote/studynote.module#StudynoteModule',
+        loadChildren: 'src/app/website/article/studynote/studynote.module#StudynoteModule',
+      },
+      {
+        path: 'articletype',
+        loadChildren: 'src/app/website/article/articletype/articletype.module#ArticletypeModule',
       },
     ]
   },

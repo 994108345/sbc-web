@@ -4,18 +4,17 @@ import {
   MessageService,
 } from 'primeng/primeng';
 import {NgZorroAntdModule, NZ_I18N, NzNotificationService, NzTableModule, zh_CN} from 'ng-zorro-antd';
-import {CommonService} from '../../common/service/base/common.service';
-import {WzlAlertService} from '../../common/service/wzlalert/wzlalert.service';
-import {WzlCacheService} from '../../common/service/wzlcache/wzlceche.service';
 import {CommonModule, registerLocaleData} from '@angular/common';
-import {WzlngzorroantdmessageService} from '../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import zh from '@angular/common/locales/zh';
 import {StudynoteMainComponent} from './main/studynote.main.component';
 import {StudynoteComponent} from './studynote.component';
-import {BrandRouting} from '../brand/brand.routing';
 import {StudynoteRouter} from './studynote.router';
+import {CommonService} from '../../../common/service/base/common.service';
+import {WzlAlertService} from '../../../common/service/wzlalert/wzlalert.service';
+import {WzlCacheService} from '../../../common/service/wzlcache/wzlceche.service';
+import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
 registerLocaleData(zh);
 @NgModule({
   imports: [

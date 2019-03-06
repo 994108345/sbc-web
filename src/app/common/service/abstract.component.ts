@@ -8,6 +8,7 @@ import {WzlCacheService} from '../service/wzlcache/wzlceche.service';
 import {WzlngzorroantdmessageService} from './wzlngzorroantdmessage/wzlngzorroantdmessage.service';
 import {urls} from '../../app.config';
 import {successStatus} from './base/common.config';
+import {FormGroup} from '@angular/forms';
 
 /**
  * Created by wenzailong on 2017/12/21.
@@ -41,6 +42,7 @@ export class AbstractComponent implements OnDestroy {
   isFirst: boolean = true;//是否首次加载
   tabName:string = "";//窗体tab的名称
   isEdit:boolean = false;//是否为编辑页面
+  ordersInfo: FormGroup;//表单验证实体
   /*-----------------单选框--------------------------*/
   isAllDisplayDataChecked = false;
   isOperating = false;
@@ -269,7 +271,6 @@ export class AbstractComponent implements OnDestroy {
     this.nzSearchParams.curPage = this.nzPageIndex;
     this.nzSearchParams.pageSize = this.nzPageSize;
     this.nzSearchParams.isPaging = true;
-    console.log('页码' + this.nzPageIndex + '每页记录数' + this.nzPageSize);
     return this.nzSearchParams;
   }
 
