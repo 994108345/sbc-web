@@ -26,6 +26,8 @@ export class WebmenuMainComponent extends AbstractComponent{
     console.log("菜单界面");
     /*跳转index页面*/
     this.redictToIndex();
+    /*从缓存中拿出用户信息*/
+    this.userInfo = this.wzlCache.getCache(cacheKey.userInfo);
   }
 
   /*登出（注销）*/

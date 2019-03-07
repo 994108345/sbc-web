@@ -17,6 +17,7 @@ import {WzlCacheService} from '../../../common/service/wzlcache/wzlceche.service
 import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
 import {ArticleAddComponent} from './add/article.add.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {ArticleEditComponent} from './edit/article.edit.component';
 registerLocaleData(zh);
 @NgModule({
   imports: [
@@ -33,7 +34,7 @@ registerLocaleData(zh);
     ArticleRouter
   ],
   declarations: [
-    ArticleMainComponent,ArticleComponent,ArticleAddComponent
+    ArticleMainComponent,ArticleComponent,ArticleAddComponent,ArticleEditComponent
   ],
   /** 配置 ng-zorro-antd 国际化 **/
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService],

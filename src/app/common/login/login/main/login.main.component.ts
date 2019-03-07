@@ -2,7 +2,7 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {PermissionRoot, CommonRouters, successStatus} from '../../../service/base/common.config';
 import {AbstractComponent} from '../../../service/abstract.component';
 import {MessageService} from 'primeng/api';
-import {cacheKey, urls} from '../../../../app.config';
+import {cacheKey, routers, urls} from '../../../../app.config';
 
 @Component({
   selector:'app-login',
@@ -10,7 +10,7 @@ import {cacheKey, urls} from '../../../../app.config';
   styleUrls: ['../../../../app.component.css','./login.main.component.css']
 })
 export class LoginMainComponent extends AbstractComponent implements OnInit{
-
+  loginType:any = 1;//登陆类型 0是老的登陆，1是新的登陆
   user:any = {};//一个用户名
 
   /*初始化必须加，初始化基类的数据*/
@@ -46,7 +46,11 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
           /*访问数+1*/
           this.addAccessCount();
           /*成功跳转菜单页面*/
-          this.router.navigate([this.commonRouters.menusRouter]);
+          if(this.loginType == 0){
+            this.router.navigate([this.commonRouters.menusRouter]);
+          }else{
+            this.router.navigate([routers.indexRouter]);
+          }
         }
       }else{
         this.wzlAlert.success("返回参数异常，请联系管理员");

@@ -17,7 +17,7 @@ export const appRoutes: Routes = [
   },
   {
     path: '**',
-    redirectTo:'/web',
+    redirectTo:'/login',
   },
 ];
 

@@ -6,12 +6,14 @@ import {NgModule} from '@angular/core';
 import {ArticleComponent} from './article.component';
 import {ArticleMainComponent} from './main/article.main.component';
 import {ArticleAddComponent} from './add/article.add.component';
+import {ArticleEditComponent} from './edit/article.edit.component';
 
 const brandRoutes: Routes = [
   {
     path: '',
     component: ArticleComponent,
     children: [
+      {path: 'edit', component: ArticleEditComponent},
       {path: 'add', component: ArticleAddComponent},
       {path: '', component: ArticleMainComponent},
     ]

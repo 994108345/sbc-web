@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
 import {AppGuardService} from '../guard/app.gurad.service';
 import {WzlCacheService} from '../service/wzlcache/wzlceche.service';
 import {WzlngzorroantdmessageService} from './wzlngzorroantdmessage/wzlngzorroantdmessage.service';
-import {urls} from '../../app.config';
+import {cacheKey, urls} from '../../app.config';
 import {successStatus} from './base/common.config';
 import {FormGroup} from '@angular/forms';
 
@@ -64,6 +64,7 @@ export class AbstractComponent implements OnDestroy {
   }
 
   ngOnInit() {
+    console.log("基类");
   }
 
   /*当页面销毁时*/
@@ -374,6 +375,23 @@ export class AbstractComponent implements OnDestroy {
     }
     this.inputValue = '';
     this.inputVisible = false;
+
+    this.tagsChange();
+  }
+  /**
+   * 标签改变
+   * @param event
+   */
+  tagsChange(){
+  }
+
+  statusChange(value,list):string{
+    for (let status of list){
+      if(status.value == value){
+        return status.label;
+      }
+    }
+    return '';
   }
 
 }

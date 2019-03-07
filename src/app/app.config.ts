@@ -53,6 +53,11 @@ export const urls = {
   queryArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/queryArticleTypeByPage",
   updateArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/updateArticleTypeById",
   insertArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/insertOneArticleType",
+
+  /*-------------------文章类型------------------------------------------*/
+  queryArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/queryArticleByPage",
+  updateArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/updateOneArticle",
+  insertArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/insertOneArticle",
 };
 
 let permissionWeb:string = '';

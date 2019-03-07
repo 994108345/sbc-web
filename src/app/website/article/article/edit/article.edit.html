@@ -92,6 +92,42 @@
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="remark">
           <span>
+           创建人
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="createUser" formControlName="createUser"  [readOnly]="true">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>创建时间</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-date-picker nzShowTime formControlName="createTime"  [nzDisabled]="true"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="remark">
+          <span>
+           最后修改人
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="lastModifiedUser" formControlName="lastModifiedUser"  [readOnly]="true">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>最后修改时间</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-date-picker nzShowTime formControlName="lastModifiedTime"  [nzDisabled]="true"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item >
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="remark">
+          <span>
            备注
           </span>
         </nz-form-label>
@@ -102,7 +138,7 @@
 
       <nz-form-item nz-row style="margin-bottom:8px;">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
-          <button nz-button nzType="primary">新增</button>
+          <button nz-button nzType="primary">更新</button>
         </nz-form-control>
       </nz-form-item>
     </form>
