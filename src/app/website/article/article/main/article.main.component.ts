@@ -24,14 +24,14 @@ export class ArticleMainComponent extends AbstractComponent{
 
   ngOnInit(){
     console.log("文章管理界面");
+    /*从缓存中拿出用户信息*/
+    this.userInfo = this.wzlCache.getCache(cacheKey.userInfo);
     /*初始化路径*/
-    urls.queryUrl = urls.queryArticleUrl;
+    urls.queryUrl = urls.querySimpleArticleUrl;
     /*查询文章*/
     this.queryBySearchParam();
     /*查询文章类型列表*/
     this.queryArticleType();
-    /*从缓存中拿出用户信息*/
-    this.userInfo = this.wzlCache.getCache(cacheKey.userInfo);
   }
 
   /**

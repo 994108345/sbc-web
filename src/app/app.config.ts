@@ -54,10 +54,13 @@ export const urls = {
   updateArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/updateArticleTypeById",
   insertArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/insertOneArticleType",
 
-  /*-------------------文章类型------------------------------------------*/
+  /*-------------------文章------------------------------------------*/
   queryArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/queryArticleByPage",
+  querySimpleArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/querySimpleArticleByPage",
   updateArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/updateOneArticle",
   insertArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/insertOneArticle",
+  /*-------------------个人分裂------------------------------------------*/
+  queryPersionClassUrl:ProdRoot + "/Article/web/articlePersionClassificationServiceImpl/queryArticlePersionClassification",
 };
 
 let permissionWeb:string = '';

@@ -2,7 +2,7 @@ import {Component, Injector, ViewChild, ViewEncapsulation} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AbstractComponent} from '../../../../common/service/abstract.component';
 import {successStatus} from '../../../../common/service/base/common.config';
-import {routers, urls} from '../../../../app.config';
+import {cacheKey, routers, urls} from '../../../../app.config';
 
 @Component({
   selector: 'articletype-add',
@@ -27,6 +27,9 @@ export class ArticletypeEditComponent extends AbstractComponent{
     }else{
       this.tabName = "查看";
     }
+
+    /*从缓存中拿出用户信息*/
+    this.userInfo = this.wzlCache.getCache(cacheKey.userInfo);
 
     /*查询品牌信息*/
     this.queryOneBrand();
@@ -58,6 +61,7 @@ export class ArticletypeEditComponent extends AbstractComponent{
   updateArticleType(){
       let condition =this.ordersInfo.value;
       condition.id = this.order.id;
+      condition.lastModifiedUser = this.order.userName;
       this.commonService.doHttpPost(urls.updateArticleTypeUrl,condition).then(rst => {
         if(rst){
           if(rst.status != successStatus){
