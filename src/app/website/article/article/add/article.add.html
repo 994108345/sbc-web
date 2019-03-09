@@ -62,7 +62,7 @@
           </span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <nz-tag *ngFor="let tagPc of articlePersonalClassification; let i = index;" [nzMode]="'closeable'" [nzChecked]="true" (nzAfterClose)="handleClosePc(tagPc)" [nzColor]="'magenta'" (nzAfterClose)="tagsChangePc()">
+          <nz-tag *ngFor="let tagPc of articlePersonalClassification; let i = index;" [nzMode]="'closeable'" [nzChecked]="true" (nzAfterClose)="handleClosePc(tagPc);tagsChangePc();closeTagPc(tagPc)" [nzColor]="'magenta'">
             {{ sliceTagName(tagPc) }}
           </nz-tag>
           <nz-tag *ngIf="!inputVisiblePc" class="editable-tag" nzNoAnimation (click)="showInputPc()">
@@ -85,6 +85,16 @@
               <nz-option [nzValue]=data.value [nzLabel]=data.label *ngFor="let data of articleTypeSelect"></nz-option>
           </nz-select>
           <nz-form-explain *ngIf="ordersInfo.get('articleType').dirty && ordersInfo.get('articleType').errors">请选择一个类型</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired >是否原创</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-select formControlName="isOriginal">
+            <nz-option [nzValue]=data.value [nzLabel]=data.label *ngFor="let data of isOriginalSelect"></nz-option>
+          </nz-select>
+          <nz-form-explain *ngIf="ordersInfo.get('isOriginal').dirty && ordersInfo.get('isOriginal').errors">请选择一个原创类型</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
 

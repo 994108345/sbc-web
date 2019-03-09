@@ -394,4 +394,31 @@ export class AbstractComponent implements OnDestroy {
     return '';
   }
 
+  /**
+   * 数组删除指定元素
+   * @param dataArr 原数组
+   * @param deleteMap 需要删除的数组元素集合,用map表示，value和key一样
+   */
+  arrRemoveDatas(dataArr, deleteMap){
+    let result= new Array();
+    for(let data of dataArr){
+      if(deleteMap.get(data)){
+
+      }else{
+        result.push(data);
+      }
+    }
+    return result;
+  }
+
+  arrRemoveOneData(dataArr,value){
+    let result= new Array();
+    for(let data of dataArr){
+      if(value != data){
+        result.push(data);
+      }
+    }
+    return result;
+  }
+
 }

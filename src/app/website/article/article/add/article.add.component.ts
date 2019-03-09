@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '
 import {AbstractComponent} from '../../../../common/service/abstract.component';
 import {successStatus} from '../../../../common/service/base/common.config';
 import {cacheKey, routers, urls} from '../../../../app.config';
+import {isOriginal_conf} from "../article.config";
 
 @Component({
   selector: 'article-add',
@@ -15,6 +16,7 @@ export class ArticleAddComponent extends AbstractComponent{
   @ViewChild('inputElement') inputElement: ElementRef;
 
   articleTypeSelect:any[] = [];//文章类型列表
+  isOriginalSelect:any[] = isOriginal_conf;//是否隐私列表
   isTagsShow:boolean = false;//标签是否已经达到五个
   /*-------个人分类的标签------*/
   articlePersonalClassification = [];
@@ -47,6 +49,7 @@ export class ArticleAddComponent extends AbstractComponent{
       remark: [ null],
       isPrivate: [ '0', [ Validators.required ]],
       multiSelectTags:[null],
+      isOriginal:[ '1', [ Validators.required ]],
     });
     /*查询文章类型*/
      this.queryArticleType();
@@ -201,18 +204,46 @@ export class ArticleAddComponent extends AbstractComponent{
       }
     }
   }
-  /*多选*/
-  selectMultiData(value:object[]):void{
-    let select  = [];
-    for(let data of value){
-      if(data["checked"] == true){
-        select.push(data["value"]);
+  /*关闭标签时，同步多选框*/
+  closeTagPc(tagVale){
+    /*取消选择*/
+    for(let select of this.multiSelectTags){
+      if(select.label == tagVale){
+        select.checked = false;
       }
     }
-    /*匹配*/
-    for (let tag of this.tags){
-
+  }
+  /*多选*/
+  selectMultiData(value:object[]):void{
+    let select  = new Map();
+    let unSelect = new Map();
+    /*多选框筛选出已选择和未选择*/
+    for(let data of value){
+      if(data["checked"] == true){
+        select.set(data["value"],data["value"]);
+      }else{
+        unSelect.set(data["value"],data["value"]);
+      }
     }
+    /*标签转换成map*/
+    let tagMap = new Map();
+    for(let tag of this.articlePersonalClassification){
+      tagMap.set(tag,tag);
+    }
+    /*匹配*/
+    select.forEach((value,key,map)=>{
+      if(!tagMap.get(key)){
+        this.articlePersonalClassification.push(key);
+      }
+    })
+    let deleteMap = new Map();
+    unSelect.forEach((value,key,map)=>{
+      if(tagMap.get(key)){
+        deleteMap.set(key,key);
+      }
+    })
+    /*删除取消选择的标签*/
+    this.articlePersonalClassification = this.arrRemoveDatas(this.articlePersonalClassification,deleteMap);
   }
 
 }
