@@ -421,4 +421,15 @@ export class AbstractComponent implements OnDestroy {
     return result;
   }
 
+  /*数组转成map*/
+  arrToMap(arr){
+    let map = new Map();
+    if(arr){
+      for(let ar of arr){
+        map.set(ar,ar);
+      }
+    }
+    return map;
+  }
+
 }

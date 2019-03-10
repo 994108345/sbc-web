@@ -1,9 +1,9 @@
 <nz-breadcrumb  style="margin:16px 0;" [nzAutoGenerate]="true">
   <nz-breadcrumb-item>
-    <a [routerLink]="['/web/articletype/']">文章类型</a>
+    <a [routerLink]="['/web/article/']">文章</a>
   </nz-breadcrumb-item>
   <nz-breadcrumb-item>
-    <a [routerLink]="['/web/articletype/add']">新增</a>
+    <a [routerLink]="['/web/article/edit']">编辑</a>
   </nz-breadcrumb-item>
 </nz-breadcrumb>
 
@@ -57,6 +57,29 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="articlePersonalClassification" nzRequired>
+          <span>
+            个人分类
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-tag *ngFor="let tagPc of articlePersonalClassification; let i = index;" [nzMode]="'closeable'" [nzChecked]="true" (nzAfterClose)="handleClosePc(tagPc);tagsChangePc();closeTagPc(tagPc)" [nzColor]="'magenta'">
+            {{ sliceTagName(tagPc) }}
+          </nz-tag>
+          <nz-tag *ngIf="!inputVisiblePc" class="editable-tag" nzNoAnimation (click)="showInputPc()">
+            <i nz-icon type="plus"></i> 个人分类,最多五个
+          </nz-tag>
+          <input #inputElement nz-input nzSize="small" id="tagPc" formControlName="tagPc" [maxLength]="20"  *ngIf="inputVisiblePc"
+                 type="text"[hidden]="isTagsShowPc" [(ngModel)]="inputValuePc" style="width: 78px;" (blur)="handleInputConfirmPc()"  (keydown.enter)="handleInputConfirmPc()">
+          <input  nz-input nzSize="small" id="articlePersonalClassification" formControlName="articlePersonalClassification" [(ngModel)]="articlePersonalClassification" [hidden]="true">
+          <nz-form-explain *ngIf="ordersInfo.get('articlePersonalClassification').dirty && ordersInfo.get('articlePersonalClassification').errors">请输入个人分类</nz-form-explain>
+          <nz-card style="width:500px;height: 100px ">
+            <nz-checkbox-group [(ngModel)]="multiSelectTags" formControlName="multiSelectTags" (ngModelChange)="selectMultiData(multiSelectTags)"></nz-checkbox-group>
+          </nz-card>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
         <nz-form-label [nzSpan]="6" nzRequired >类型</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <nz-select formControlName="articleType">
@@ -66,8 +89,18 @@
         </nz-form-control>
       </nz-form-item>
 
-
       <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired >是否原创</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-select formControlName="isOriginal">
+            <nz-option [nzValue]=data.value [nzLabel]=data.label *ngFor="let data of isOriginalSelect"></nz-option>
+          </nz-select>
+          <nz-form-explain *ngIf="ordersInfo.get('isOriginal').dirty && ordersInfo.get('isOriginal').errors">请选择一个原创类型</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <!--<nz-form-item>
         <nz-form-label [nzSpan]="6" nzRequired >状态</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <nz-select formControlName="status">
@@ -76,7 +109,7 @@
           </nz-select>
           <nz-form-explain *ngIf="ordersInfo.get('status').dirty && ordersInfo.get('status').errors">请选择一个状态</nz-form-explain>
         </nz-form-control>
-      </nz-form-item>
+      </nz-form-item>-->
 
       <nz-form-item>
         <nz-form-label [nzSpan]="6" nzRequired >私密文章</nz-form-label>

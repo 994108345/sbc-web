@@ -39,7 +39,7 @@ export class ArticleAddComponent extends AbstractComponent{
     /*初始化参数*/
     this.ordersInfo = this.fb.group({
       title: [ null, [ Validators.required ]],
-      status: [ '1', [ Validators.required ] ],
+      //status: [ '1', [ Validators.required ] ],
       tags:[null, [ Validators.required ]],
       tag:[null],
       articlePersonalClassification:[null, [ Validators.required ]],
@@ -186,6 +186,8 @@ export class ArticleAddComponent extends AbstractComponent{
     if (this.inputValuePc && this.articlePersonalClassification.indexOf(this.inputValuePc) === -1) {
       this.articlePersonalClassification = [ ...this.articlePersonalClassification, this.inputValuePc ];
     }
+    /*同步多选框*/
+    this.addTagPc(this.inputValuePc);
     this.inputValuePc = '';
     this.inputVisiblePc = false;
     this.tagsChangePc();
@@ -210,6 +212,14 @@ export class ArticleAddComponent extends AbstractComponent{
     for(let select of this.multiSelectTags){
       if(select.label == tagVale){
         select.checked = false;
+      }
+    }
+  }
+  /*添加标签的时候同步多选框*/
+  addTagPc(tagValue){
+    for(let value of this.multiSelectTags){
+      if(value.value == tagValue){
+        value.checked = true;
       }
     }
   }
