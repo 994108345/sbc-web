@@ -16,6 +16,7 @@ import {CommonModule} from '@angular/common';
 import {DemoModule} from './demo/demo.module';
 import {ArticletypeModule} from './article/articletype/articletype.module';
 import {ArticleModule} from './article/article/article.module';
+import {WebMenuModule} from "./menu/webmenu.module";
 
 @NgModule({
   imports: [
@@ -39,6 +40,6 @@ import {ArticleModule} from './article/article/article.module';
   /** 配置 ng-zorro-antd 国际化 **/
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN }],
 })
-export class WebMenuModule {
+export class WebSiteModule {
 
 }

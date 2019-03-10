@@ -18,7 +18,6 @@ import {CommonService} from '../service/base/common.service';
 import {WzlCacheService} from '../service/wzlcache/wzlceche.service';
 import {WzlAlertService} from '../service/wzlalert/wzlalert.service';
 import {MenusMainComponent} from './main/menus.main.component';
-import {IndexComponent} from './index/index.component';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 
 @NgModule({

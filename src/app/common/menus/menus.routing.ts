@@ -4,7 +4,6 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {MenusMainComponent} from './main/menus.main.component';
-import {IndexComponent} from './index/index.component';
 
 const menuRoutes: Routes = [
   {
