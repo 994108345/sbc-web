@@ -82,7 +82,7 @@ export class ArticleAddComponent extends AbstractComponent{
           if(rst.status != successStatus){
             this.wzlNgZorroAntdMessage.error(rst.message);
           }else{
-            this.wzlNgZorroAntdMessage.success("添加成功");
+            //this.wzlNgZorroAntdMessage.success("添加成功");
             this.router.navigate([routers.articleRouter]);
           }
         }else{
@@ -102,7 +102,7 @@ export class ArticleAddComponent extends AbstractComponent{
         if(rst.status != successStatus){
           this.wzlNgZorroAntdMessage.error(rst.message);
         }else{
-          this.wzlNgZorroAntdMessage.success("查询成功");
+          //this.wzlNgZorroAntdMessage.success("查询成功");
           let data = rst.data;
           if(data && data.length > 0){
             for (let articleType of data){
@@ -128,7 +128,7 @@ export class ArticleAddComponent extends AbstractComponent{
         if(rst.status != successStatus){
           this.wzlNgZorroAntdMessage.error(rst.message);
         }else{
-          this.wzlNgZorroAntdMessage.success("查询成功");
+          //this.wzlNgZorroAntdMessage.success("查询成功");
           let data = rst.data;
           if(data && data.length > 0){
             let articlePc = data[0];
