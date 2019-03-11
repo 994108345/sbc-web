@@ -35,6 +35,8 @@ export class ArticleMainComponent extends AbstractComponent{
     this.queryBySearchParam();
     /*查询文章类型列表*/
     this.queryArticleType();
+    /*查询个人分类*/
+    this.queryPersionClass();
 
     this.ordersInfo = this.fb.group({
       title: [ ],
@@ -140,5 +142,27 @@ export class ArticleMainComponent extends AbstractComponent{
     if(this.ordersInfo.valid){
       this.queryArticleType();
     }
+  }
+  /*根据条件查询文章*/
+  queryArticleByParam(){
+    let condition = this.ordersInfo.value;
+    if(condition.articlePersonalClassification){
+      condition.articlePersonalClassficationArr = condition.articlePersonalClassification;
+    }
+    this.commonService.doHttpPost(urls.queryArticleUrl,condition).then(rst => {
+      if(rst){
+        if(rst.status != successStatus){
+          this.wzlNgZorroAntdMessage.error(rst.message);
+        }else{
+          //this.wzlNgZorroAntdMessage.success('查询成功');
+          this.dataSet = rst.data;
+          this.totalRecords = rst.totalRecords;
+        }
+      }else{
+        this.wzlNgZorroAntdMessage.error("返回参数异常，请联系管理员");
+      }
+    }).catch(rtc =>{
+      this.wzlNgZorroAntdMessage.error("http请求出现异常，请联系管理员");
+    })
   }
 }

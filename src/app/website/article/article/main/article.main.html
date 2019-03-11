@@ -8,45 +8,68 @@
 
   <form nz-form [nzLayout]="'inline'" [formGroup]="ordersInfo" (ngSubmit)="validArticleInfo()">
     <div nz-row [nzGutter]="24">
-      <div nz-col [nzSpan]="8">
+      <div nz-col [nzSpan]="6">
         <nz-form-item nzFlex>
-          <nz-form-label>文章名称</nz-form-label>
-          <nz-form-control>
+          <nz-form-label [nzSm]="6" [nzXs]="12">文章名称</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="12">
             <input nz-input placeholder="文章标题" formControlName="title">
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div nz-col [nzSpan]="8">
+      <div nz-col [nzSpan]="6">
         <nz-form-item nzFlex>
-          <nz-form-label>文章分类</nz-form-label>
-          <nz-form-control>
-            <nz-select style="width: 120px;" formControlName="articleType" nzAllowClear nzPlaceHolder="文章分类">
+          <nz-form-label [nzSm]="6" [nzXs]="12">文章分类</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="12">
+            <nz-select style="width: 100%;" formControlName="articleType" nzAllowClear nzPlaceHolder="文章分类">
               <nz-option *ngFor="let select of articleTypeSelect" [nzValue]="select.value" [nzLabel]="select.label"></nz-option>
             </nz-select>
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div nz-col [nzSpan]="8">
+      <div nz-col [nzSpan]="6">
         <nz-form-item nzFlex>
-          <nz-form-label>文章分类</nz-form-label>
-          <nz-form-control>
-            <nz-select style="width: 120px;" formControlName="articleType" nzAllowClear nzPlaceHolder="Choose">
-              <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-              <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+          <nz-form-label [nzSm]="6" [nzXs]="12">个人分类</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="12">
+            <nz-select nzMode="tags" style="width: 100%;" nzPlaceHolder="个人分类"  formControlName="articlePersonalClassification">
+              <nz-option *ngFor="let option of pcSelect" [nzLabel]="option.label" [nzValue]="option.value">
+              </nz-option>
             </nz-select>
-            <!--<nz-select style="width: 120px;" formControlName="articleType" nzAllowClear nzPlaceHolder="文章分类">
-              <nz-option *ngFor="let select of articleTypeSelect" [nzValue]="select.value" [nzLabel]="select.label"></nz-option>
-            </nz-select>-->
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="6">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSm]="6" [nzXs]="12">是否原创</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="12">
+            <nz-select style="width: 100%;" formControlName="articleType" nzAllowClear nzPlaceHolder="是否原创">
+              <nz-option *ngFor="let select of isOriginalSelect" [nzValue]="select.value" [nzLabel]="select.label"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="6">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSm]="6" [nzXs]="12">是否私密</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="12">
+            <nz-select style="width: 100%;" formControlName="isPrivate" nzAllowClear nzPlaceHolder="是否原创">
+              <nz-option *ngFor="let select of isPrivateList" [nzValue]="select.value" [nzLabel]="select.label"></nz-option>
+            </nz-select>
           </nz-form-control>
         </nz-form-item>
       </div>
     </div>
   </form>
-
-  <div nz-row nzType="flex" nzJustify="end">
-    <div nz-col nzSpan="2"><button nz-button nzType="primary" (click)="addArticle()" nzGhost>新增</button></div>
-    <!--<div nz-col nzSpan="2"><button nz-button nzType="default">编辑</button></div>-->
+  <div nz-row [nzGutter]="24">
+    <div nz-col [nzSpan]="10">
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button nz-button nzType="primary" (click)="queryArticleByParam()" nzGhost>搜索</button>
+    </div>
+    <div nz-col [nzSpan]="10">
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button nz-button nzType="primary" (click)="addArticle()" nzGhost>新增</button>
+    </div>
   </div>
 </nz-content>
 <nz-table #nzTable nzShowSizeChanger [nzData]="dataSet"    [nzTitle]="'文章类型'" [nzShowPagination] = "false"
