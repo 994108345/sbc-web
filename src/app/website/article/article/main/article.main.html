@@ -18,6 +18,14 @@
       </div>
       <div nz-col [nzSpan]="6">
         <nz-form-item nzFlex>
+          <nz-form-label [nzSm]="6" [nzXs]="12">文章编码</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="12">
+            <input nz-input placeholder="文章编码" formControlName="articleCode">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="6">
+        <nz-form-item nzFlex>
           <nz-form-label [nzSm]="6" [nzXs]="12">文章分类</nz-form-label>
           <nz-form-control [nzSm]="18" [nzXs]="12">
             <nz-select style="width: 100%;" formControlName="articleType" nzAllowClear nzPlaceHolder="文章分类">
@@ -41,7 +49,7 @@
         <nz-form-item nzFlex>
           <nz-form-label [nzSm]="6" [nzXs]="12">是否原创</nz-form-label>
           <nz-form-control [nzSm]="18" [nzXs]="12">
-            <nz-select style="width: 100%;" formControlName="articleType" nzAllowClear nzPlaceHolder="是否原创">
+            <nz-select style="width: 100%;" formControlName="isOriginal" nzAllowClear nzPlaceHolder="是否原创">
               <nz-option *ngFor="let select of isOriginalSelect" [nzValue]="select.value" [nzLabel]="select.label"></nz-option>
             </nz-select>
           </nz-form-control>
@@ -51,7 +59,7 @@
         <nz-form-item nzFlex>
           <nz-form-label [nzSm]="6" [nzXs]="12">是否私密</nz-form-label>
           <nz-form-control [nzSm]="18" [nzXs]="12">
-            <nz-select style="width: 100%;" formControlName="isPrivate" nzAllowClear nzPlaceHolder="是否原创">
+            <nz-select style="width: 100%;" formControlName="isPrivate" nzAllowClear nzPlaceHolder="是否私密">
               <nz-option *ngFor="let select of isPrivateList" [nzValue]="select.value" [nzLabel]="select.label"></nz-option>
             </nz-select>
           </nz-form-control>
@@ -60,12 +68,15 @@
     </div>
   </form>
   <div nz-row [nzGutter]="24">
-    <div nz-col [nzSpan]="10">
+    <div nz-col [nzSpan]="9">
     </div>
     <div nz-col [nzSpan]="2">
       <button nz-button nzType="primary" (click)="queryArticleByParam()" nzGhost>搜索</button>
     </div>
-    <div nz-col [nzSpan]="10">
+    <div nz-col [nzSpan]="2">
+      <button nz-button nzType="primary" (click)="reSetParam()" nzGhost>重置</button>
+    </div>
+    <div nz-col [nzSpan]="9">
     </div>
     <div nz-col [nzSpan]="2">
       <button nz-button nzType="primary" (click)="addArticle()" nzGhost>新增</button>
@@ -88,7 +99,8 @@
     <th nzWidth="100px">作者</th>
     <th nzWidth="100px">标题</th>
     <th nzWidth="100px">标签</th>
-    <th nzWidth="100px">状态</th>
+    <th nzWidth="100px">个人分类</th>
+    <th nzWidth="100px">是否原创</th>
     <th nzWidth="100px">是否私密</th>
     <th nzWidth="100px">创建人</th>
     <th nzWidth="100px">创建时间</th>
@@ -107,7 +119,8 @@
     <td>{{data.author}}</td>
     <td>{{data.title}}</td>
     <td>{{data.tags}}</td>
-    <td>{{statusChange(data.status,statusList)}}</td>
+    <td>{{data.articlePersonalClassification}}</td>
+    <td>{{statusChange(data.isOriginal,isOriginalSelect)}}</td>
     <td>{{statusChange(data.isPrivate,isPrivateList)}}</td>
     <td>{{data.createUser}}</td>
     <td>{{ data.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>

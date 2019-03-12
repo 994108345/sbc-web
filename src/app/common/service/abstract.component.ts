@@ -8,7 +8,7 @@ import {WzlCacheService} from '../service/wzlcache/wzlceche.service';
 import {WzlngzorroantdmessageService} from './wzlngzorroantdmessage/wzlngzorroantdmessage.service';
 import {cacheKey, urls} from '../../app.config';
 import {successStatus} from './base/common.config';
-import {FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 /**
  * Created by wenzailong on 2017/12/21.
@@ -430,6 +430,10 @@ export class AbstractComponent implements OnDestroy {
       }
     }
     return map;
+  }
+
+  /*重置查询参数*/
+  reSetParam(){
   }
 
 }

@@ -47,12 +47,30 @@ export class ArticleMainComponent extends AbstractComponent{
       tagPc:[],
       content:[],
       articleType:[],
+      articleCode:[],
       remark: [ ],
       isPrivate: [ ],
       multiSelectTags:[],
       isOriginal:[],
     });
 
+  }
+
+  reSetParam() {
+    this.ordersInfo = this.fb.group({
+      title: [ ],
+      tags:[],
+      tag:[],
+      articlePersonalClassification:[],
+      tagPc:[],
+      content:[],
+      articleType:[],
+      articleCode:[],
+      remark: [ ],
+      isPrivate: [ ],
+      multiSelectTags:[],
+      isOriginal:[],
+    });
   }
 
   /**
@@ -154,7 +172,7 @@ export class ArticleMainComponent extends AbstractComponent{
         if(rst.status != successStatus){
           this.wzlNgZorroAntdMessage.error(rst.message);
         }else{
-          //this.wzlNgZorroAntdMessage.success('查询成功');
+          this.wzlNgZorroAntdMessage.success('查询成功');
           this.dataSet = rst.data;
           this.totalRecords = rst.totalRecords;
         }
