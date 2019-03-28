@@ -49,7 +49,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
           if(this.loginType == 0){
             this.router.navigate([this.commonRouters.menusRouter]);
           }else{
-            this.router.navigate([routers.indexRouter]);
+            this.router.navigate([routers.webRouter]);
           }
         }
       }else{

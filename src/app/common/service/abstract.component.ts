@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
 import {AppGuardService} from '../guard/app.gurad.service';
 import {WzlCacheService} from '../service/wzlcache/wzlceche.service';
 import {WzlngzorroantdmessageService} from './wzlngzorroantdmessage/wzlngzorroantdmessage.service';
-import {cacheKey, urls} from '../../app.config';
+import {cacheKey, routers, urls} from '../../app.config';
 import {successStatus} from './base/common.config';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
@@ -434,6 +434,20 @@ export class AbstractComponent implements OnDestroy {
 
   /*重置查询参数*/
   reSetParam(){
+  }
+
+  /*跳转主页*/
+  goHome(){
+    if(routers.webRouter){
+      this.router.navigate([routers.homeRouter]);
+    }else{
+      this.wzlNgZorroAntdMessage.error("主页跳转路径没有配置，请联系管理员");
+    }
+  }
+
+  /*查询文章列表*/
+  getArticleAllInfos(){
+
   }
 
 }
