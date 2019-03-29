@@ -12,12 +12,16 @@ export const appRoutes: Routes = [
     loadChildren: 'src/app/common/login/login/login.module#LoginModule',
   },
   {
+    path: 'home',
+    loadChildren: 'src/app/website/home/home.module#HomeModule',
+  },
+  {
     path: 'web',
     loadChildren: 'src/app/website/menu/webmenu.module#WebMenuModule',
   },
   {
     path: '**',
-    redirectTo:'/login',
+    redirectTo:'/home',
   },
 ];
 

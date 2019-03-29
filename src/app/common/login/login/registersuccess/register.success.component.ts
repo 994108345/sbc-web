@@ -2,6 +2,7 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {PermissionRoot, CommonRouters, successStatus} from '../../../service/base/common.config';
 import {AbstractComponent} from '../../../service/abstract.component';
 import {MessageService} from 'primeng/api';
+import {routers} from '../../../../app.config';
 
 @Component({
   selector:'app-register-success',
@@ -67,7 +68,7 @@ export class RegisterSuccessComponent extends AbstractComponent implements OnIni
         }else{
           this.wzlAlert.success("登录成功");
           /*成功跳转菜单页面*/
-          this.router.navigate([this.commonRouters.menusRouter]);
+          this.router.navigate([routers.indexRouter]);
         }
       }else{
         this.wzlAlert.success("返回参数异常，请联系管理员");

@@ -36,17 +36,43 @@ export class ArticleEditComponent extends AbstractComponent{
     /*取id*/
     this.order = this.wzlCache.getCache("article");
 
-    /*查询文章类型*/
-    this.queryArticleType();
-    /*查询文章内容*/
-    this.queryArticle();
     /*从缓存中拿出用户信息*/
     this.userInfo = this.wzlCache.getCache(cacheKey.userInfo);
 
     /*初始化参数*/
     this.tags = this.order.tags.split(",");
     this.articlePersonalClassification = this.order.articlePersonalClassification.split(",");
-      this.ordersInfo = this.fb.group({
+    this.ordersInfo = this.fb.group({
+      title: [ this.order.title, [ Validators.required ]],
+      //status: [ this.order.status, [ Validators.required ] ],
+      tags:[ [ Validators.required ]],
+      tag:[],
+      content:[this.order.content, [ Validators.required ]],
+      articleType:[this.order.articleType, [ Validators.required ]],
+      remark: [ this.order.remark],
+      isPrivate: [ this.order.isPrivate, [ Validators.required ]],
+      createTime: [ this.order.createTime, [ Validators.required ] ],
+      lastModifiedTime: [ this.order.lastModifiedTime, [ Validators.required ] ],
+      createUser: [ this.order.createUser ],
+      lastModifiedUser: [ this.order.lastModifiedUser ],
+      articlePersonalClassification:[[ Validators.required ]],
+      tagPc:[null],
+      multiSelectTags:[null],
+      isOriginal:[ this.order.isOriginal, [ Validators.required ]],
+    });
+    /*查询文章类型*/
+    this.queryArticleType();
+    /*查询文章内容*/
+    this.queryArticle();
+  }
+
+  /*绑定表单*/
+
+  setForm(){
+    /*初始化参数*/
+    this.tags = this.order.tags.split(",");
+    this.articlePersonalClassification = this.order.articlePersonalClassification.split(",");
+    this.ordersInfo = this.fb.group({
       title: [ this.order.title, [ Validators.required ]],
       //status: [ this.order.status, [ Validators.required ] ],
       tags:[ [ Validators.required ]],
@@ -65,7 +91,6 @@ export class ArticleEditComponent extends AbstractComponent{
       isOriginal:[ this.order.isOriginal, [ Validators.required ]],
     });
   }
-
   /*校验字段*/
   validAddBrandInfo(): void {
     for (const i in this.ordersInfo.controls) {
@@ -171,6 +196,8 @@ export class ArticleEditComponent extends AbstractComponent{
           let data = rst.data;
           if(data && data.length > 0){
             this.order = data[0];
+            /*刷新表单*/
+             this.setForm();
             /*查询个人分类*/
             this.queryPersionClass();
           }else{

@@ -59,8 +59,10 @@ export const urls = {
   querySimpleArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/querySimpleArticleByPage",
   updateArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/updateOneArticle",
   insertArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/insertOneArticle",
-  /*-------------------个人分裂------------------------------------------*/
+  /*-------------------个人类------------------------------------------*/
   queryPersionClassUrl:ProdRoot + "/Article/web/articlePersionClassificationServiceImpl/queryArticlePersionClassification",
+  /*---------------------文章列表-------------------------------*/
+  queryArticleAllInfosUrl:ProdRoot + "/Article/web/articleServiceImpl/queryArticleInfo",
 };
 
 let permissionWeb:string = '';
@@ -69,8 +71,13 @@ let permissionWeb:string = '';
 export const routers = {
   menusRouter: 'menus',
   loginRouter: 'login',
+  /*主页面*/
+  webRouter:'web',
+  /*博客主页*/
+  homeRouter:'home',
   modifyPasswordRouter:'login/password',
   indexRouter:'web/index',
+
   /*品牌*/
   brandAddRouter:'web/brand/add',
   brandEditRouter:'web/brand/edit',
