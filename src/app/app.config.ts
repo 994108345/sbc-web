@@ -62,7 +62,7 @@ export const urls = {
   /*-------------------个人类------------------------------------------*/
   queryPersionClassUrl:ProdRoot + "/Article/web/articlePersionClassificationServiceImpl/queryArticlePersionClassification",
   /*---------------------文章列表-------------------------------*/
-  queryArticleAllInfosUrl:ProdRoot + "/Article/web/articleServiceImpl/queryArticleInfo",
+  queryArticleAllInfosUrl:ProdRoot + "/Article/webNo/articleServiceImpl/queryArticleInfo",
 };
 
 let permissionWeb:string = '';

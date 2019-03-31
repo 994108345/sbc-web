@@ -21,6 +21,7 @@ import {HomeMainComponent} from './main/home.main.component';
 import {HomeRouting} from './home.routing';
 import {CommonModule} from '@angular/common';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {WzlngzorroantdmessageService} from "../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service";
 
 @NgModule({
   imports: [
@@ -40,7 +41,7 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
     HomeComponent,HomeMainComponent
   ],
   /** 配置 ng-zorro-antd 国际化 **/
-  providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService],
 })
 export class HomeModule {
 

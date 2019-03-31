@@ -1,10 +1,9 @@
 <nz-layout class="layout">
   <nz-header style="border-bottom: #F6F6F6">
     <div nz-row [nzGutter]="24">
-
       <!--第一行头-->
-      <div nz-col [nzSpan]="6">
-        <div nz-col [nzSpan]="6">
+      <div nz-col [nzSpan]="4">
+        <div nz-col [nzSpan]="24">
           <div><a><h1 style="color: darkorange" (click)="goHome()">努码</h1></a></div>
         </div>
       </div>
@@ -24,8 +23,8 @@
           </ng-template>
         </div>
       </div>
-      <div nz-col [nzSpan]="6">
-        <div nz-col [nzSpan]="6">
+      <div nz-col [nzSpan]="8">
+        <div nz-col [nzSpan]="6 ">
           <a  (click)="reSetParam()" style="font-size: 20px"><i nz-icon type="setting" theme="outline"></i>样式</a>
         </div>
         <div nz-col [nzSpan]="6">
@@ -35,11 +34,15 @@
         <button nz-button nzType="primary" (click)="reSetParam()" style="border-radius: 20px;background-color:darkorange;border:0px;color:white;"><i nz-icon type="edit" theme="outline"></i>写文章</button>
       </div>
     </div>
-    <!--第二行内容-->
+  </nz-header>
+  <nz-content style="height: 100%;">
+      <!--第二行内容-->
     <div nz-row [nzGutter]="24">
+
       <div nz-col [nzSpan]="6">
         暂时不知道
       </div>
+
       <div nz-col [nzSpan]="12">
         <div nz-col [nzSpan]="24">
           <!--走马灯-->
@@ -47,19 +50,44 @@
             <div nz-carousel-content *ngFor="let index of array"><h3>{{index}}</h3></div>
           </nz-carousel>
         </div>
+        <!--文章列表-->
+        <div nz-col [nzSpan]="24">
+          <nz-list
+            [nzDataSource]="articleAllInfos"
+            [nzItemLayout]="'vertical'"
+            [nzRenderItem]="item"
+            [nzPagination]="pagination"
+            [nzFooter]="footer">
+            <ng-template #item let-item>
+              <nz-list-item [nzContent]="item.content" [nzActions]="[starAction,likeAction,msgAction]" [nzExtra]="extra">
+                <ng-template #starAction><i nz-icon type="star-o" style="margin-right: 8px;"></i> 156</ng-template>
+                <ng-template #likeAction><i nz-icon type="like-o" style="margin-right: 8px;"></i> 156</ng-template>
+                <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template>
+                <nz-list-item-meta
+                  [nzAvatar]="item.avatar"
+                  [nzTitle]="nzTitle"
+                  [nzDescription]="item.description">
+                  <ng-template #nzTitle><a href="{{item.href}}">{{item.title}}</a></ng-template>
+                </nz-list-item-meta>
+                <ng-template #extra>
+                  <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png">
+                </ng-template>
+              </nz-list-item>
+            </ng-template>
+            <ng-template #footer>
+              <div><b>ant design</b> footer part</div>
+            </ng-template>
+            <ng-template #pagination>
+              <nz-pagination [nzPageIndex]="nzPageIndex" [nzTotal]="totalRecords" (nzPageIndexChange)="loadArticleAllInfos($event)"></nz-pagination>
+            </ng-template>
+          </nz-list>
+        </div>
       </div>
+
       <div nz-col [nzSpan]="6">
         栏目
       </div>
-    </div>
-  </nz-header>
-  <nz-content style="padding:0 50px;">
-    <div style="background:#fff; padding: 24px; min-height: 280px;">
-      <div nz-row [nzGutter]="24">
-        <div nz-col [nzSpan]="6"></div>
-        <div nz-col [nzSpan]="12"></div>
-        <div nz-col [nzSpan]="6"></div>
-      </div>
+
     </div>
   </nz-content>
   <nz-footer style="text-align: center;">Ant Design ©2019 Implement By Angular</nz-footer>
