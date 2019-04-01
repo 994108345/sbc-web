@@ -127,7 +127,7 @@
     <td>{{data.lastModifiedUser}}</td>
     <td>{{ data.lastModifiedTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
     <td>{{data.remark}}</td>
-    <td nzRight="0px"><a (click)="editArticle(data,true)">编辑</a></td>
+    <td nzRight="0px"><a (click)="editArticle(data,true)">编辑</a>&nbsp;<a (click)="deleteArticle(data)">删除</a></td>
   </tr>
   </tbody>
 </nz-table>

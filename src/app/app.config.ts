@@ -59,6 +59,7 @@ export const urls = {
   querySimpleArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/querySimpleArticleByPage",
   updateArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/updateOneArticle",
   insertArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/insertOneArticle",
+  deleteArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/deleteArticleByCode",
   /*-------------------个人类------------------------------------------*/
   queryPersionClassUrl:ProdRoot + "/Article/web/articlePersionClassificationServiceImpl/queryArticlePersionClassification",
   /*---------------------文章列表-------------------------------*/

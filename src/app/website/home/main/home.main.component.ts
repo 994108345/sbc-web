@@ -25,8 +25,8 @@ export class HomeMainComponent extends AbstractComponent{
     console.log("home界面");
 
   }
-  /*每当 Angular 把外部内容投影进组件/指令的视图之后调用*/
-  ngAfterContentInit(){
+  /*每当 Angular 初始化完组件视图及其子视图之后调用。*/
+  ngAfterViewInit(){
     this.queryArticleAllInfos();
   }
 

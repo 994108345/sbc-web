@@ -183,4 +183,29 @@ export class ArticleMainComponent extends AbstractComponent{
       this.wzlNgZorroAntdMessage.error("http请求出现异常，请联系管理员");
     })
   }
+
+  /**
+   * 删除文章
+   */
+  deleteArticle(data){
+    if(urls.deleteArticleUrl){
+      let condition = {articleCode:data.articleCode};
+      this.commonService.doHttpPost(urls.deleteArticleUrl,condition).then(rst => {
+        if(rst){
+          if(rst.status != successStatus){
+            this.wzlNgZorroAntdMessage.error(rst.message);
+          }else{
+            this.wzlNgZorroAntdMessage.success('删除成功');
+            this.queryBySearchParam();
+          }
+        }else{
+          this.wzlNgZorroAntdMessage.error("返回参数异常，请联系管理员");
+        }
+      }).catch(rtc =>{
+        this.wzlNgZorroAntdMessage.error("http请求出现异常，请联系管理员");
+      })
+    }else{
+      this.wzlNgZorroAntdMessage.error("路由没有配置，请联系管理员");
+    }
+  }
 }
