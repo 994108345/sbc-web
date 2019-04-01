@@ -24,8 +24,10 @@ export class HomeMainComponent extends AbstractComponent{
   ngOnInit(){
     console.log("home界面");
 
+  }
+  /*每当 Angular 把外部内容投影进组件/指令的视图之后调用*/
+  ngAfterContentInit(){
     this.queryArticleAllInfos();
-
   }
 
   /*登出（注销）*/
@@ -66,17 +68,9 @@ export class HomeMainComponent extends AbstractComponent{
           if(rst.status != successStatus){
             this.wzlNgZorroAntdMessage.error(rst.message);
           }else{
-            let articleInfos = rst.data;
-            for (let value of articleInfos){
-              let article = {href:"",title:"",avatar:"",description:"",content:""};
-              article.href = "123123";
-              article.title = value.title;
-              article.avatar = "www.baidu.com";
-              article.description = value.comment;
-              article.content= article.content + "213456";
-              this.articleAllInfos.push(article);
-            }
-            console.log("消息：" + this.toJsonStr(this.articleAllInfos))
+            this.totalRecords = rst.totalRecords;
+            /*拼展示数据*/
+            this.joinShowData(rst.data);
           }
         }else{
           this.wzlNgZorroAntdMessage.success("返回参数异常，请联系管理员");
@@ -87,11 +81,32 @@ export class HomeMainComponent extends AbstractComponent{
     }
   }
 
+  /*拼接文章展示数据*/
+  joinShowData(data:any){
+    for (let value of data){
+      let article = {href:"",title:"",avatar:"",description:"",content:"",clickCount:"",likeCount:"",commentCount:""};
+      article.href = "123123";
+      article.title = value.title;
+      article.avatar = "www.baidu.com";
+      article.description = value.comment;
+      article.content = value.shortComment + "213456";
+      article.clickCount = value.clickCount;
+      article.likeCount = value.likeCount;
+      article.commentCount = value.commentCount;
+      this.articleAllInfos.push(article);
+    }
+  }
+
   /*文章翻页*/
   loadArticleAllInfos(event){
     if(event){
       this.nzPageIndex = event;
       this.queryArticleAllInfos();
     }
+  }
+
+  /*文章点击事件*/
+  articleClick(event){
+    console.log(this.toJsonStr(event));
   }
 }
