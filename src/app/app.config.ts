@@ -53,6 +53,7 @@ export const urls = {
   queryArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/queryArticleTypeByPage",
   updateArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/updateArticleTypeById",
   insertArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/insertOneArticleType",
+  deleteArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/deleteArticleTypeByCode",
 
   /*-------------------文章------------------------------------------*/
   queryArticleUrl:ProdRoot + "/Article/web/articleServiceImpl/queryArticleByPage",
