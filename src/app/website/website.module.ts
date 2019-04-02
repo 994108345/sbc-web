@@ -17,7 +17,7 @@ import {DemoModule} from './demo/demo.module';
 import {ArticletypeModule} from './article/articletype/articletype.module';
 import {ArticleModule} from './article/article/article.module';
 import {WebMenuModule} from "./menu/webmenu.module";
-import {HomeModule} from './home/home.module';
+import {HomeModule} from './home/main/home.module';
 
 @NgModule({
   imports: [

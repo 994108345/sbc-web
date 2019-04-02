@@ -75,10 +75,12 @@ export const routers = {
   loginRouter: 'login',
   /*主页面*/
   webRouter:'web',
-  /*博客主页*/
-  homeRouter:'home',
   modifyPasswordRouter:'login/password',
   indexRouter:'web/index',
+  /*博客主页*/
+  homeRouter:'home',
+  /*博客首页内容*/
+  homeIndexRouter:"home/index",
 
   /*品牌*/
   brandAddRouter:'web/brand/add',

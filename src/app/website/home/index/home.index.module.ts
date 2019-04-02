@@ -13,15 +13,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
-import {CommonService} from '../../common/service/base/common.service';
-import {WzlAlertService} from '../../common/service/wzlalert/wzlalert.service';
-import {WzlCacheService} from '../../common/service/wzlcache/wzlceche.service';
-import {HomeComponent} from './home.component';
-import {HomeMainComponent} from './main/home.main.component';
-import {HomeRouting} from './home.routing';
 import {CommonModule} from '@angular/common';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
-import {WzlngzorroantdmessageService} from "../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service";
+import {HomeIndexMainComponent} from './main/home.index.main.component';
+import {HomeIndexRouting} from './home.index.routing';
+import {HomeIndexComponent} from './home.index.component';
+import {CommonService} from '../../../common/service/base/common.service';
+import {WzlAlertService} from '../../../common/service/wzlalert/wzlalert.service';
+import {WzlCacheService} from '../../../common/service/wzlcache/wzlceche.service';
+import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
 
 @NgModule({
   imports: [
@@ -35,14 +35,14 @@ import {WzlngzorroantdmessageService} from "../../common/service/wzlngzorroantdm
     /*富文本编辑器*/
     EditorModule,
     CKEditorModule,
-    HomeRouting,
+    HomeIndexRouting,
   ],
   declarations: [
-    HomeComponent,HomeMainComponent
+    HomeIndexMainComponent,HomeIndexComponent
   ],
   /** 配置 ng-zorro-antd 国际化 **/
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService],
 })
-export class HomeModule {
+export class HomeIndexModule {
 
 }

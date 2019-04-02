@@ -13,7 +13,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: 'src/app/website/home/home.module#HomeModule',
+    loadChildren: 'src/app/website/home/main/home.module#HomeModule',
   },
   {
     path: 'web',

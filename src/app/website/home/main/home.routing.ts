@@ -6,19 +6,19 @@ import {NgModule} from '@angular/core';
 import {HomeComponent} from './home.component';
 import {HomeMainComponent} from './main/home.main.component';
 
-const indexRoutes: Routes = [
+const homeRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: HomeMainComponent,
     children: [
-      {path: '',component: HomeMainComponent,}
+      {path: 'index',loadChildren: 'src/app/website/home/index/home.index.module#HomeIndexModule',},
     ]
-  }
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(indexRoutes)
+    RouterModule.forChild(homeRoutes)
   ],
   exports: [
     RouterModule

@@ -1,5 +1,5 @@
 import {Component, Injector, OnInit} from '@angular/core';
-import {AbstractComponent} from '../../common/service/abstract.component';
+import {AbstractComponent} from '../../../common/service/abstract.component';
 
 @Component({
   template: '<router-outlet></router-outlet>'

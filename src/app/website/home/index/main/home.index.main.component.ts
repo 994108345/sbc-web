@@ -1,19 +1,18 @@
 import {Component, Injector} from '@angular/core';
-import {MenuItem} from 'primeng/api';
-import {cacheKey, routers, urls} from '../../../app.config';
-import {AbstractComponent} from '../../../common/service/abstract.component';
-import {successStatus} from '../../../common/service/base/common.config';
-import {ArticleAllInfo} from "../home.config";
+import {AbstractComponent} from '../../../../common/service/abstract.component';
+import {successStatus} from '../../../../common/service/base/common.config';
+import {routers, urls} from '../../../../app.config';
 
 @Component({
-  selector: 'web-home',
-  templateUrl: './home.main.html',
-  styleUrls: ['./home.main.css']
+  selector: 'web-home-index-main',
+  templateUrl: './home.index.main.html',
+  styleUrls: ['./home.index.main.css']
 })
-export class HomeMainComponent extends AbstractComponent{
+export class HomeIndexMainComponent extends AbstractComponent{
 
   array = [ "努力","继续", "坚持", "享受" ];
   articleAllInfos:any[] = [];
+  isLoading:boolean = true;
 
   /*初始化必须加，初始化基类的数据*/
   constructor(public injector:Injector){
@@ -71,6 +70,7 @@ export class HomeMainComponent extends AbstractComponent{
             this.totalRecords = rst.totalRecords;
             /*拼展示数据*/
             this.joinShowData(rst.data);
+            this.isLoading = false;
           }
         }else{
           this.wzlNgZorroAntdMessage.success("返回参数异常，请联系管理员");
@@ -89,7 +89,7 @@ export class HomeMainComponent extends AbstractComponent{
       article.title = value.title;
       article.avatar = "www.baidu.com";
       article.description = value.comment;
-      article.content = value.shortComment + "213456";
+      article.content = value.shortComment;
       article.clickCount = value.clickCount;
       article.likeCount = value.likeCount;
       article.commentCount = value.commentCount;
