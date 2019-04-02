@@ -20,6 +20,7 @@ export class WebmenuMainComponent extends AbstractComponent{
   /*初始化必须加，初始化基类的数据*/
   constructor(public injector:Injector){
     super(injector);
+    console.log("网站菜单主页进来了吗");
   }
 
 

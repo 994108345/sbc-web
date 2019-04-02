@@ -49,6 +49,7 @@ export class LoginMainComponent extends AbstractComponent implements OnInit{
           if(this.loginType == 0){
             this.router.navigate([this.commonRouters.menusRouter]);
           }else{
+            console.log("登陆成功");
             this.router.navigate([routers.webRouter]);
           }
         }

@@ -22,11 +22,9 @@ export class HomeIndexMainComponent extends AbstractComponent{
 
   ngOnInit(){
     console.log("home界面");
-
-  }
-  /*每当 Angular 初始化完组件视图及其子视图之后调用。*/
-  ngAfterViewInit(){
+    /*初始化列表*/
     this.queryArticleAllInfos();
+
   }
 
   /*登出（注销）*/
