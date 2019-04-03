@@ -9,10 +9,11 @@
 button{
   margin: 5px;
 }
+
 [nz-carousel-content] {
   text-align: center;
-  height: 100%;
-  line-height: 1000%;
+  height: 250px;
+  line-height: 250px;
   background: #364d79;
   color: #fff;
   overflow: hidden;

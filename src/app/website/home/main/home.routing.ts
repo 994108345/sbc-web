@@ -12,6 +12,7 @@ const homeRoutes: Routes = [
     component: HomeMainComponent,
     children: [
       {path: 'index',loadChildren: 'src/app/website/home/index/home.index.module#HomeIndexModule',},
+      {path: 'article',loadChildren: 'src/app/website/home/article/home.article.module#HomeArticleModule',},
     ]
   },
 ];

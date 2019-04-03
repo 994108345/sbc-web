@@ -1,7 +1,7 @@
 import {Component, Injector} from '@angular/core';
 import {AbstractComponent} from '../../../../common/service/abstract.component';
 import {successStatus} from '../../../../common/service/base/common.config';
-import {routers, urls} from '../../../../app.config';
+import {cacheKey, routers, urls} from '../../../../app.config';
 
 @Component({
   selector: 'web-home-index-main',
@@ -82,7 +82,7 @@ export class HomeIndexMainComponent extends AbstractComponent{
   /*拼接文章展示数据*/
   joinShowData(data:any){
     for (let value of data){
-      let article = {href:"",title:"",avatar:"",description:"",content:"",clickCount:"",likeCount:"",commentCount:""};
+      let article = {href:"",title:"",avatar:"",description:"",content:"",clickCount:"",likeCount:"",commentCount:"",articleCode:""};
       article.href = "123123";
       article.title = value.title;
       article.avatar = "www.baidu.com";
@@ -91,6 +91,7 @@ export class HomeIndexMainComponent extends AbstractComponent{
       article.clickCount = value.clickCount;
       article.likeCount = value.likeCount;
       article.commentCount = value.commentCount;
+      article.articleCode = value.articleCode;
       this.articleAllInfos.push(article);
     }
   }
@@ -105,6 +106,9 @@ export class HomeIndexMainComponent extends AbstractComponent{
 
   /*文章点击事件*/
   articleClick(event){
-    console.log(this.toJsonStr(event));
+    /*设置缓存*/
+    this.wzlCache.setCache(cacheKey.articleCode,event.articleCode);
+    /*跳到缓存页面*/
+    this.router.navigate([routers.homeArticleRouter])
   }
 }

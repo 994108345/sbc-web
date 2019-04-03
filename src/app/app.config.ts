@@ -65,6 +65,8 @@ export const urls = {
   queryPersionClassUrl:ProdRoot + "/Article/web/articlePersionClassificationServiceImpl/queryArticlePersionClassification",
   /*---------------------文章列表-------------------------------*/
   queryArticleAllInfosUrl:ProdRoot + "/Article/webNo/articleServiceImpl/queryArticleInfo",
+  /*--------------------------单个文章展示页面-----------------------------------*/
+  queryArticleAllInfoUrl:ProdRoot + "/Article/webNo/articleServiceImpl/queryArticleAllInfo",
 };
 
 let permissionWeb:string = '';
@@ -78,9 +80,11 @@ export const routers = {
   modifyPasswordRouter:'login/password',
   indexRouter:'web/index',
   /*博客主页*/
-  homeRouter:'home',
+  homeRouter:'home/index',
   /*博客首页内容*/
   homeIndexRouter:"home/index",
+  /*博客文章内容页*/
+  homeArticleRouter:"home/article",
 
   /*品牌*/
   brandAddRouter:'web/brand/add',
@@ -104,4 +108,5 @@ export const routers = {
 
 export const cacheKey = {
   userInfo:'userInfo',
+  articleCode:"articleCode",
 }

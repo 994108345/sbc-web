@@ -10,9 +10,6 @@ import {
   PanelMenuModule,
   PasswordModule
 } from 'primeng/primeng';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ToastModule} from 'primeng/toast';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {CommonService} from '../../common/service/base/common.service';
 import {WzlAlertService} from '../../common/service/wzlalert/wzlalert.service';

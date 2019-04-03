@@ -9,7 +9,13 @@ export class WzlCacheService{
   /*获取缓存*/
   getCache(key:string){
     let strr = sessionStorage.getItem(key);
-    return this.tOJsonObjs(strr);
+    let object;
+    try{
+      object = this.tOJsonObjs(strr);
+    }catch (e) {
+      object = strr;
+    }
+    return object;
   }
 
   /*设置缓存*/

@@ -1,0 +1,22 @@
+.head-picture{
+  float:left;
+  height:40px;
+  width:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  overflow:hidden;
+  margin-right: 5px;
+}
+
+.text-font{
+  font-size: 18px;
+}
+
+#title{
+  width:100%;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold
+}

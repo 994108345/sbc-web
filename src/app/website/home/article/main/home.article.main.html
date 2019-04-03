@@ -1,0 +1,47 @@
+<br><br>
+
+<!--第二行内容-->
+<div nz-row [nzGutter]="24">
+
+  <div nz-col [nzSpan]="8">
+    暂时不知道
+  </div>
+
+  <div nz-col [nzSpan]="8">
+    <!--标题-->
+    <div nz-col [nzSpan]="24" id="title">
+      {{order.title}}
+    </div>
+
+    <br><br><br><br>
+
+    <!--作者文章信息-->
+    <div nz-col [nzSpan]="24" id="auth" >
+      <div  nz-col [nzSpan]="24">
+        <div class="head-picture"  style="">
+          <img src="../../../../../assets/picture/head.png" style="width:100%;height:auto;"/>
+        </div>
+        <p class="text-font">{{order.author}}&nbsp;
+        {{order.createTime | date:'yyyy-MM-dd HH:mm:ss' }}
+        <br>
+        <i nz-icon type="star-o" style="margin-right: 8px;"></i>{{order.clickCount}}
+        <i nz-icon type="like-o" style="margin-right: 8px;"></i>{{order.clickCount}}
+        <i nz-icon type="message" style="margin-right: 8px;"></i>{{order.clickCount}}
+        </p>
+      </div>
+    </div>
+
+    <br><br><br><br>
+
+    <!--文章内容-->
+    <div nz-col [nzSpan]="24" id="content">
+      <p [innerHTML]="order.content" class="text-font"></p>
+    </div>
+
+  </div>
+
+  <div nz-col [nzSpan]="8">
+    栏目
+  </div>
+
+</div>
