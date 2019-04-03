@@ -19,10 +19,7 @@ import {CommonService} from '../../../common/service/base/common.service';
 import {WzlAlertService} from '../../../common/service/wzlalert/wzlalert.service';
 import {WzlCacheService} from '../../../common/service/wzlcache/wzlceche.service';
 import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
-import {HomeArticleComponent} from './home.article.component';
-import {HomeArticleMainComponent} from './main/home.article.main.component';
-import {HomeArticleRouting} from './home.article.routing';
-import {HomeArticlebottomModule} from '../articlebottom/home.articlebottom.module';
+import {HomeArticlebottomMainComponent} from './home.articlebottom.main.component';
 
 @NgModule({
   imports: [
@@ -36,15 +33,13 @@ import {HomeArticlebottomModule} from '../articlebottom/home.articlebottom.modul
     /*富文本编辑器*/
     EditorModule,
     CKEditorModule,
-    HomeArticlebottomModule,
-    HomeArticleRouting,
   ],
   declarations: [
-    HomeArticleComponent,HomeArticleMainComponent
+    HomeArticlebottomMainComponent
   ],
   /** 配置 ng-zorro-antd 国际化 **/
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService],
 })
-export class HomeArticleModule {
+export class HomeArticlebottomModule {
 
 }
