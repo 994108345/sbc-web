@@ -1,4 +1,4 @@
-import {Component, Injector} from '@angular/core';
+import {Component, EventEmitter, Injector, Output} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {cacheKey, routers, urls} from '../../../app.config';
 import {AbstractComponent} from '../../../common/service/abstract.component';
@@ -16,6 +16,7 @@ export class IndexMainComponent extends AbstractComponent{
     super(injector);
   }
 
+  @Output() private onDelete = new EventEmitter();
 
   ngOnInit(){
     console.log("index界面");

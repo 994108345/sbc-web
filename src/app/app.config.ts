@@ -106,7 +106,15 @@ export const routers = {
   demoAddRouter:'web/demo/add',
 };
 
+//缓存key
 export const cacheKey = {
   userInfo:'userInfo',
   articleCode:"articleCode",
 }
+
+//传输事件名
+export const  emitKey ={
+  emitkey:'emitKey',
+  articleQuery:'articleQuery',
+}
+

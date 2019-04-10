@@ -1,17 +1,9 @@
 import {NgModule} from '@angular/core';
 import {
-  ButtonModule, EditorModule,
-  InputTextModule,
-  MenuModule,
-  MessageModule,
+  EditorModule,
   MessageService,
-  MessagesModule,
-  PanelMenuModule,
-  PasswordModule
 } from 'primeng/primeng';
-import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ToastModule} from 'primeng/toast';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {CommonModule} from '@angular/common';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
@@ -22,6 +14,7 @@ import {CommonService} from '../../../common/service/base/common.service';
 import {WzlAlertService} from '../../../common/service/wzlalert/wzlalert.service';
 import {WzlCacheService} from '../../../common/service/wzlcache/wzlceche.service';
 import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service';
+import {EmitService} from '../../../common/service/emit/emit.service';
 
 @NgModule({
   imports: [
@@ -41,7 +34,7 @@ import {WzlngzorroantdmessageService} from '../../../common/service/wzlngzorroan
     HomeIndexMainComponent,HomeIndexComponent
   ],
   /** 配置 ng-zorro-antd 国际化 **/
-  providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService],
+  providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService,EmitService],
 })
 export class HomeIndexModule {
 

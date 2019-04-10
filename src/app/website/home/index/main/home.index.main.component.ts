@@ -1,7 +1,8 @@
 import {Component, Injector} from '@angular/core';
 import {AbstractComponent} from '../../../../common/service/abstract.component';
 import {successStatus} from '../../../../common/service/base/common.config';
-import {cacheKey, routers, urls} from '../../../../app.config';
+import {cacheKey, emitKey, routers, urls} from '../../../../app.config';
+import {EmitService} from '../../../../common/service/emit/emit.service';
 
 @Component({
   selector: 'web-home-index-main',
@@ -14,8 +15,9 @@ export class HomeIndexMainComponent extends AbstractComponent{
   articleAllInfos:any[] = [];
   isLoading:boolean = true;
 
+
   /*初始化必须加，初始化基类的数据*/
-  constructor(public injector:Injector){
+  constructor(public injector:Injector,public emitService: EmitService){
     super(injector);
   }
 
@@ -24,6 +26,14 @@ export class HomeIndexMainComponent extends AbstractComponent{
     console.log("home界面");
     /*初始化列表*/
     this.queryArticleAllInfos();
+
+    // 接收发射过来的数据
+    this.emitService.eventEmit.subscribe((value: any) => {
+      console.log(value);
+      if(value[emitKey.emitkey] == emitKey.articleQuery) {
+        console.log("收到了，我立马刷新列表");
+      }
+    });
 
   }
 
@@ -77,6 +87,13 @@ export class HomeIndexMainComponent extends AbstractComponent{
         this.wzlNgZorroAntdMessage.error("http请求出现异常，请联系管理员");
       })
     }
+  }
+
+  //外部调用查询
+  queryArticleInfosToOut(data:any):void{
+    this.order.title = data;
+    this.order.author = data;
+    this.queryArticleAllInfos();
   }
 
   /*拼接文章展示数据*/

@@ -16,10 +16,10 @@
         </div>
         <div nz-col [nzSpan]="10">
           <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input type="text" nz-input placeholder="input search text">
+            <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchParam" (keypress)="queryArticleAllInfos()">
           </nz-input-group>
           <ng-template #suffixIconSearch>
-            <i nz-icon type="search"></i>
+            <i nz-icon type="search" (click)="queryArticleAllInfos()"></i>
           </ng-template>
         </div>
       </div>

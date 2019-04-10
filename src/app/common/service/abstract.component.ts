@@ -274,6 +274,7 @@ export class AbstractComponent implements OnDestroy {
    * 设置分页参数
    */
   ngZorroSearParam() {
+    this.nzSearchParams = this.order;
     this.nzSearchParams.curPage = this.nzPageIndex;
     this.nzSearchParams.pageSize = this.nzPageSize;
     this.nzSearchParams.isPaging = true;
