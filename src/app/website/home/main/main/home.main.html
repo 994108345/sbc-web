@@ -16,7 +16,7 @@
         </div>
         <div nz-col [nzSpan]="10">
           <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchParam" (keypress)="queryArticleAllInfos()">
+            <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchParam" (keypress)="queryArticleAllInfos($event)">
           </nz-input-group>
           <ng-template #suffixIconSearch>
             <i nz-icon type="search" (click)="queryArticleAllInfos()"></i>
@@ -38,7 +38,11 @@
   <nz-divider style="margin: 0px;padding: 0px;margin-bottom: 20px"></nz-divider>
   <nz-content style="height: 100%;">
       <!--第二行内容-->
-    <router-outlet></router-outlet>
+    <!--文章内容-->
+    <web-home-info #homeInfo  *ngIf="isHomeInfo" (htmlChange)="viewChange($event)"></web-home-info>
+    <web-home-article #article *ngIf="isHomeArticlea" (htmlChange)="viewChange($event)"></web-home-article>
+    <!--文章内容-->
+
   </nz-content>
   <nz-footer style="text-align: center;">Ant Design ©2019 Implement By Angular</nz-footer>
 </nz-layout>

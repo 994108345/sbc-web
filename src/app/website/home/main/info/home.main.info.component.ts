@@ -1,21 +1,26 @@
-import {Component, EventEmitter, Injector, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Injector, Input, Output, ViewChild} from '@angular/core';
+import {cacheKey, emitKey, routers, urls} from '../../../../app.config';
 import {AbstractComponent} from '../../../../common/service/abstract.component';
 import {successStatus} from '../../../../common/service/base/common.config';
-import {cacheKey, emitKey, routers, urls} from '../../../../app.config';
 import {EmitService} from '../../../../common/service/emit/emit.service';
+import {HomeIndexComponent} from '../../index/home.index.component';
+import {HomeIndexMainComponent} from '../../index/main/home.index.main.component';
+import {homeType} from '../home.config';
 
 @Component({
-  selector: 'web-home-index-main',
-  templateUrl: './home.index.main.html',
-  styleUrls: ['./home.index.main.css']
+  selector: 'web-home-info',
+  templateUrl: './home.main.info.html',
+  styleUrls: ['./home.main.info.css']
 })
-export class HomeIndexMainComponent extends AbstractComponent{
+export class HomeMainInfoComponent extends AbstractComponent{
 
   //查询文章目录方法
   @Output() articleQuery: EventEmitter<any> = new EventEmitter();
+  @Output() htmlChange = new EventEmitter<string>();
 
   array = [ "努力","继续", "坚持", "享受" ];
   articleAllInfos:any[] = [];
+  //集合加载的遮罩框
   isLoading:boolean = true;
 
 
@@ -37,44 +42,11 @@ export class HomeIndexMainComponent extends AbstractComponent{
         console.log("收到了，我立马刷新列表");
       }
     });
-
-    //初始化方法
-    this.initializeFunc();
-
   }
-
-  //初始化对外方法
-  initializeFunc(){
-    this.articleQuery.emit();
-  }
-
-  /*登出（注销）*/
-  loginOut(){
-    let condition = {};
-    this.commonService.doHttpPost(urls.loginOutUrl,condition).then(rst => {
-      if(rst){
-        if(rst.status != successStatus){
-          this.wzlAlert.error(rst.message);
-        }else{
-          this.wzlAlert.success("注销成功");
-          /*登出成功后，自动跳转到登陆界面*/
-          this.router.navigate([routers.loginRouter]);
-        }
-      }else{
-        this.wzlAlert.success("返回参数异常，请联系管理员");
-      }
-    }).catch(rtc =>{
-      this.wzlAlert.error("http请求出现异常，请联系管理员");
-    })
-  }
-
-  /*Z登陆*/
-  login(){
-    if(routers.loginRouter){
-      this.router.navigate([routers.loginRouter]);
-    }else{
-      this.wzlNgZorroAntdMessage.error("登陆路由不存在，请联系管理员");
-    }
+  //传递事件（查看文章具体内容）
+  vote() {
+    console.log("info开始跳转了")
+    this.htmlChange.emit(homeType.homeArticle);
   }
 
   /*查询文章信息列表*/
@@ -102,6 +74,8 @@ export class HomeIndexMainComponent extends AbstractComponent{
 
   //外部调用查询
   queryArticleInfosToOut(data:any):void{
+    //遮罩框
+    this.isLoading = true;
     this.order.title = data;
     this.order.author = data;
     this.queryArticleAllInfos();
@@ -109,6 +83,8 @@ export class HomeIndexMainComponent extends AbstractComponent{
 
   /*拼接文章展示数据*/
   joinShowData(data:any){
+    //清空数据数组
+    this.articleAllInfos.length = 0;
     for (let value of data){
       let article = {href:"",title:"",avatar:"",description:"",content:"",clickCount:"",likeCount:"",commentCount:"",articleCode:""};
       article.href = "123123";
@@ -137,6 +113,14 @@ export class HomeIndexMainComponent extends AbstractComponent{
     /*设置缓存*/
     this.wzlCache.setCache(cacheKey.articleCode,event.articleCode);
     /*跳到缓存页面*/
-    this.router.navigate([routers.homeArticleRouter])
+    //this.router.navigate([routers.homeArticleRouter])
+    this.vote();
+  }
+
+  /**
+   * 事件传递
+   */
+  queryTest(){
+    console.log("我进来了")
   }
 }

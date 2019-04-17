@@ -31,7 +31,7 @@ export class CommonRouters {
     this.path = bizModule;
     this.rootRouter = baseUrl;
     this.addRouter = baseUrl + "/add";
-    this.editRouter = baseUrl + "/edit";
+    this.editRouter = baseUrl + "/info";
     this.detailRouter = baseUrl + "/detail";
   }
 

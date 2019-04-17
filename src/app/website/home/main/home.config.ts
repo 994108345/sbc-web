@@ -5,3 +5,8 @@ export class ArticleAllInfo{
   description: string = "";
   content: string = "";
 }
+
+export  const homeType = {
+  homeIndex:"homeIndex",
+  homeArticle:"homeArticle"
+}

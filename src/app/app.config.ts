@@ -88,17 +88,17 @@ export const routers = {
 
   /*品牌*/
   brandAddRouter:'web/brand/add',
-  brandEditRouter:'web/brand/edit',
+  brandEditRouter:'web/brand/info',
   brandViewRouter:'web/brand/view',
   brandRouter:'web/brand',
   /*文章类型*/
   articleTypeAddRouter:'web/articletype/add',
-  articleTypeEditRouter:'web/articletype/edit',
+  articleTypeEditRouter:'web/articletype/info',
   articleTypeViewRouter:'web/articletype/view',
   articleTypeRouter:'web/articletype',
   /*文章*/
   articleAddRouter:'web/article/add',
-  articleEditRouter:'web/article/edit',
+  articleEditRouter:'web/article/info',
   articleViewRouter:'web/article/view',
   articleRouter:'web/article',
 
@@ -116,5 +116,12 @@ export const cacheKey = {
 export const  emitKey ={
   emitkey:'emitKey',
   articleQuery:'articleQuery',
+}
+
+/**
+ * 键盘的输入的asll码
+ */
+export const asllCode = {
+  enter:13,//回车
 }
 

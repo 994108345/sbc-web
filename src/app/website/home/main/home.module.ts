@@ -24,6 +24,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {WzlngzorroantdmessageService} from "../../../common/service/wzlngzorroantdmessage/wzlngzorroantdmessage.service";
 import {HomeIndexModule} from '../index/home.index.module';
 import {EmitService} from '../../../common/service/emit/emit.service';
+import {HomeMainInfoComponent} from './info/home.main.info.component';
+import {HomeArticleComponent} from './article/home.article.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,7 @@ import {EmitService} from '../../../common/service/emit/emit.service';
     HomeRouting,
   ],
   declarations: [
-    HomeComponent,HomeMainComponent,
+    HomeComponent,HomeMainComponent,HomeMainInfoComponent,HomeArticleComponent
   ],
   /** 配置 ng-zorro-antd 国际化 **/
   providers: [CommonService,WzlAlertService,WzlCacheService,MessageService,{ provide: NZ_I18N, useValue: zh_CN },WzlngzorroantdmessageService,EmitService],

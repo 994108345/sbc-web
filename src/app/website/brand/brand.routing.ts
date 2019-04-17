@@ -14,7 +14,7 @@ const brandRoutes: Routes = [
     component: BrandComponent,
     children: [
       {path: 'add', component: BrandAddComponent},
-      {path: 'edit', component: BrandEditComponent},
+      {path: 'info', component: BrandEditComponent},
       {path: 'view', component: BrandEditComponent},
       {path: '', component: BrandMainComponent},
     ]

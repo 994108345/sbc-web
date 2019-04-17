@@ -1,0 +1,24 @@
+.logo {
+  border:red 1px solid ;
+  width: 120px;
+  height: 31px;
+  background: rgba(255,255,255,.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+button{
+  margin: 5px;
+}
+
+[nz-carousel-content] {
+  text-align: center;
+  height: 250px;
+  line-height: 250px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+}
+
+h3 {
+  color: #fff;
+}

@@ -5,7 +5,7 @@ import {AbstractComponent} from '../../../common/service/abstract.component';
   template: '<router-outlet></router-outlet>'
 })
 export class HomeComponent extends AbstractComponent implements  OnInit{
-  constructor(injector:Injector){
+  constructor(injector: Injector){
     super(injector);
   }
   ngOnInit() {
