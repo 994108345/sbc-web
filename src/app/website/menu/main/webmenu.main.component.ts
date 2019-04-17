@@ -13,19 +13,18 @@ import {Params} from '@angular/router';
 export class WebmenuMainComponent extends AbstractComponent{
 
   //菜单是否内嵌
-  isCollapsed:false;
-  triggerTemplate = null;
+  isCollapsed:boolean = false;
+  triggerTemplate: TemplateRef<void> | null = null;
   @ViewChild('trigger') customTrigger: TemplateRef<void>;
 
   /*初始化必须加，初始化基类的数据*/
   constructor(public injector:Injector){
     super(injector);
-    console.log("网站菜单主页进来了吗");
   }
 
 
   ngOnInit(){
-    console.log("菜单界面");
+    console.log("网站菜单主页进来了吗");
     /*跳转index页面*/
     this.redictToIndex();
     /*从缓存中拿出用户信息*/
@@ -54,7 +53,6 @@ export class WebmenuMainComponent extends AbstractComponent{
 
   /*内嵌菜单*/
   toggleCollapsed():void{
-    // @ts-ignore
     this.isCollapsed  = !this.isCollapsed;
   }
 

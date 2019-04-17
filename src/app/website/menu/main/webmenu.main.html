@@ -1,9 +1,10 @@
-<nz-layout style="">
+<nz-layout>
   <!--左边菜单-->
-  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" [nzBreakpoint]="'lg'">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
     <div class="logo" style="text-align: center">
       <a><h1 style="color: darkorange" (click)="goHome()">努码</h1></a>
     </div>
+    <nz-divider></nz-divider>
     <ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu>
         <span title><i nz-icon type="user"></i><span class="nav-text">商品系统</span></span>
@@ -31,8 +32,8 @@
   <nz-layout>
     <!--右边上面-->
     <nz-header style="background: #fff; padding:0;">
-      <i class="trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="false"></i>
-      <i nz-icon type="right" theme="outline" (click)="loginOut()"></i>
+      <i class="trigger" nz-icon  [type]="isCollapsed ? 'menu-unfold':'menu-fold'" (click)="toggleCollapsed()" title="缩放菜单"></i>
+      <i  class="logout" nz-icon  [type]="'logout'"  (click)="loginOut()" title="退出"></i>
     </nz-header>
 
     <nz-content style="margin:0 16px;">
@@ -48,11 +49,12 @@
       </div>
     </nz-content>
 
-    <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer>
+    <!--底部-->
+    <nz-footer style="text-align: center;">nulidexiaoma 1.0</nz-footer>
 
   </nz-layout>
 </nz-layout>
 
-<ng-template #trigger>
-  <i nz-icon type="up"></i>
-</ng-template>
+<!--<ng-template #trigger>-->
+  <!--<i nz-icon type="up"></i>-->
+<!--</ng-template>-->
