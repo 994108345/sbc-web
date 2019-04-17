@@ -23,6 +23,9 @@ export class HomeMainInfoComponent extends AbstractComponent{
   //集合加载的遮罩框
   isLoading:boolean = true;
 
+  //类型数组
+  types:any[] = [];
+
 
   /*初始化必须加，初始化基类的数据*/
   constructor(public injector:Injector,public emitService: EmitService){
@@ -34,14 +37,8 @@ export class HomeMainInfoComponent extends AbstractComponent{
     console.log("home界面");
     /*初始化列表*/
     this.queryArticleAllInfos();
-
-    // 接收发射过来的数据
-    this.emitService.eventEmit.subscribe((value: any) => {
-      console.log(value);
-      if(value[emitKey.emitkey] == emitKey.articleQuery) {
-        console.log("收到了，我立马刷新列表");
-      }
-    });
+    //查询文章类型
+    this.queryArticleType();
   }
   //传递事件（查看文章具体内容）
   vote() {
@@ -51,6 +48,7 @@ export class HomeMainInfoComponent extends AbstractComponent{
 
   /*查询文章信息列表*/
   queryArticleAllInfos(){
+    this.isLoading = true;
     if(urls.queryArticleAllInfosUrl){
       let condition = this.ngZorroSearParam();
       this.commonService.doHttpPost(urls.queryArticleAllInfosUrl,condition).then(rst => {
@@ -59,8 +57,12 @@ export class HomeMainInfoComponent extends AbstractComponent{
             this.wzlNgZorroAntdMessage.error(rst.message);
           }else{
             this.totalRecords = rst.totalRecords;
+            //清空数据数组
+            this.articleAllInfos.length = 0;
             /*拼展示数据*/
-            this.joinShowData(rst.data);
+            if(rst.data && rst.data.length > 0){
+              this.joinShowData(rst.data);
+            }
             this.isLoading = false;
           }
         }else{
@@ -75,7 +77,6 @@ export class HomeMainInfoComponent extends AbstractComponent{
   //外部调用查询
   queryArticleInfosToOut(data:any):void{
     //遮罩框
-    this.isLoading = true;
     this.order.title = data;
     this.order.author = data;
     this.queryArticleAllInfos();
@@ -83,13 +84,11 @@ export class HomeMainInfoComponent extends AbstractComponent{
 
   /*拼接文章展示数据*/
   joinShowData(data:any){
-    //清空数据数组
-    this.articleAllInfos.length = 0;
     for (let value of data){
       let article = {href:"",title:"",avatar:"",description:"",content:"",clickCount:"",likeCount:"",commentCount:"",articleCode:""};
       article.href = "123123";
       article.title = value.title;
-      article.avatar = "www.baidu.com";
+      article.avatar = "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png";
       article.description = value.comment;
       article.content = value.shortComment;
       article.clickCount = value.clickCount;
@@ -117,10 +116,46 @@ export class HomeMainInfoComponent extends AbstractComponent{
     this.vote();
   }
 
-  /**
-   * 事件传递
-   */
-  queryTest(){
-    console.log("我进来了")
+  /*查询文章类型列表*/
+  queryArticleType(){
+    let condition = {isPaging:false};
+    this.commonService.doHttpPost(urls.queryArticleTypeNoAuthUrl,condition).then(rst => {
+      if(rst){
+        if(rst.status != successStatus){
+          this.wzlNgZorroAntdMessage.error(rst.message);
+        }else{
+          //this.wzlNgZorroAntdMessage.success("查询成功");
+          let data = rst.data;
+          if(data && data.length > 0){
+            for (let type of data){
+              this.types.push({value:type.articleTypeCode,label:type.articleName});
+            }
+          }else{
+            this.wzlNgZorroAntdMessage.error("查询出的文章类型为空");
+          }
+        }
+      }else{
+        this.wzlNgZorroAntdMessage.error("返回参数异常，请联系管理员");
+      }
+    }).catch(rtc =>{
+      this.wzlNgZorroAntdMessage.error("http请求出现异常，请联系管理员");
+    })
   }
+
+  /**
+   * 返回文字颜色样式
+   */
+  textColor() {
+    return "[{background-color:'red'}]";
+  }
+
+  /**
+   * 根据文章类型查询文章
+   */
+  queryArticleByType(typeCode){
+    //让数据刷新的遮罩
+    this.order.articleType = typeCode;
+    this.queryArticleAllInfos();
+  }
+
 }

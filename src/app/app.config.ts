@@ -51,6 +51,7 @@ export const urls = {
   updateBrandUtl:ProdRoot + "/ProdBrandManage/update-brand",
   /*-------------------文章类型------------------------------------------*/
   queryArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/queryArticleTypeByPage",
+  queryArticleTypeNoAuthUrl:ProdRoot + "/Article/webNo/articleTypeServiceImpl/queryArticleTypeByPage",//不走权限
   updateArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/updateArticleTypeById",
   insertArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/insertOneArticleType",
   deleteArticleTypeUrl:ProdRoot + "/Article/web/articleTypeServiceImpl/deleteArticleTypeByCode",
