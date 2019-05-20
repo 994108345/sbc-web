@@ -22,11 +22,11 @@
         </div>
         <p class="text-font">{{order.author}}&nbsp;
         {{order.createTime | date:'yyyy-MM-dd HH:mm:ss' }}
-        <br>
-        <i nz-icon type="star-o" style="margin-right: 8px;"></i>{{order.clickCount}}
-        <i nz-icon type="like-o" style="margin-right: 8px;"></i>{{order.clickCount}}
-        <i nz-icon type="message" style="margin-right: 8px;"></i>{{order.clickCount}}
         </p>
+        <br>
+          <i nz-icon class="icon" type="like" style="margin-right: 8px;"></i><p class="icon-p">{{order.likeCount}}</p>
+        <i nz-icon class="icon" type="dislike" style="margin-right: 8px;"></i><p class="icon-p">{{order.noLikeCount}}</p>
+        <i nz-icon class="icon" type="message" style="margin-right: 8px;"></i><p class="icon-p">{{order.commentCount}}</p>
     </div>
 
     <br><br><br><br>
@@ -34,6 +34,10 @@
     <!--文章内容-->
     <div nz-col [nzSpan]="24" id="content">
       <p [innerHTML]="order.content" class="text-font"></p>
+    </div>
+    <!--评论-->
+    <div nz-col [nzSpan]="24">
+
     </div>
 
   </div>

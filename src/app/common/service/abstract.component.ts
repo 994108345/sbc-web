@@ -57,6 +57,9 @@ export class AbstractComponent implements OnDestroy {
   inputValue = '';
   inputElement: ElementRef;
 
+  /*oss获取上传文件的url*/
+  ossUploadUrl:string;
+
   /*后端返回信息*/
   rst: any = {dat: {}, message: '', status: -10000};
 
@@ -451,5 +454,4 @@ export class AbstractComponent implements OnDestroy {
   getArticleAllInfos(){
 
   }
-
 }

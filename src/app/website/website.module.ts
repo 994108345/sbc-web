@@ -18,6 +18,8 @@ import {ArticletypeModule} from './article/articletype/articletype.module';
 import {ArticleModule} from './article/article/article.module';
 import {WebMenuModule} from "./menu/webmenu.module";
 import {HomeModule} from './home/main/home.module';
+import {UserModule} from './user/userinfo/user.module';
+import {FileModule} from './file/file.module';
 
 @NgModule({
   imports: [
@@ -34,7 +36,9 @@ import {HomeModule} from './home/main/home.module';
     BrandModule,
     ArticleModule,
     ArticletypeModule,
+    UserModule,
     HomeModule,
+    FileModule,
     DemoModule,
   ],
   declarations: [

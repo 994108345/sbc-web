@@ -1,0 +1,9 @@
+<p-fileUpload name="file" [url]="uploadUrl" (onUpload)="onUpload($event)" (onError)="onError($event)" (onBeforeUpload)="onBeforeUpload($event)" (onSelect)="onSelect($event)"
+              multiple="multiple" [maxFileSize]="1024*1000*50" [disabled]="isUpload" [files]="uploadingFiles" [invalidFileSizeMessageDetail]="invalidFileSizeMessageDetail">
+  <ng-template pTemplate="content">
+    <ul *ngIf="uploadedFiles.length">
+      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size/1024}} Kb</li>
+    </ul>
+  </ng-template>
+</p-fileUpload>
+

@@ -90,7 +90,7 @@ export class HomeMainComponent extends AbstractComponent implements AfterViewIni
   // 查询文章
   queryArticleAllInfos(event) {
     //判断如果是回车才进入
-    if(asllCode.enter == event || event == undefined){
+    if(event == undefined || asllCode.enter == event.which ){
       this.homeInfo.queryArticleInfosToOut(this.searchParam);
     }
   }

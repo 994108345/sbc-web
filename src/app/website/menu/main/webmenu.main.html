@@ -7,6 +7,12 @@
     <nz-divider></nz-divider>
     <ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu>
+        <span title><i nz-icon type="user"></i><span class="nav-text">用户系统</span></span>
+        <ul>
+          <li nz-menu-item routerLink="/web/userinfo">用户信息</li>
+        </ul>
+      </li>
+      <li nz-submenu>
         <span title><i nz-icon type="user"></i><span class="nav-text">商品系统</span></span>
         <ul>
           <li nz-menu-item routerLink="/web/brand">品牌管理</li>
@@ -17,6 +23,12 @@
         <ul>
           <li nz-menu-item routerLink="/web/article">文章管理</li>
           <li nz-menu-item routerLink="/web/articletype">文章类型</li>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i nz-icon type="team"></i><span class="nav-text">文件上传</span></span>
+        <ul>
+          <li nz-menu-item routerLink="/web/file">文件管理</li>
         </ul>
       </li>
       <li nz-submenu>

@@ -30,6 +30,14 @@ const menuRoutes: Routes = [
         path: 'articletype',
         loadChildren: 'src/app/website/article/articletype/articletype.module#ArticletypeModule',
       },
+      {
+        path: 'userinfo',
+        loadChildren: 'src/app/website/user/userinfo/user.module#UserModule',
+      },
+      {
+        path: 'file',
+        loadChildren: 'src/app/website/file/file.module#FileModule',
+      },
     ]
   },
 ];

@@ -1,0 +1,78 @@
+<nz-breadcrumb  style="margin:16px 0;" [nzAutoGenerate]="true">
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/article']">文章</a>
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-content style="">
+
+  <div nz-row [nzGutter]="24">
+    <div nz-col [nzSpan]="9">
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button nz-button nzType="primary" (click)="queryArticleByParam()" nzGhost>搜索</button>
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button nz-button nzType="primary" (click)="reSetParam()" nzGhost>重置</button>
+    </div>
+    <div nz-col [nzSpan]="9">
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button nz-button nzType="primary" (click)="addArticle()" nzGhost>新增</button>
+    </div>
+  </div>
+</nz-content>
+<nz-table #nzTable nzShowSizeChanger [nzData]="dataSet"    [nzTitle]="'文章类型'" [nzShowPagination] = "false"
+          [nzTotal]="totalRecords" [nzBordered]="true" [nzPageSize]="nzPageSize"
+          (nzCurrentPageDataChange)="currentPageDataChange($event)" [nzScroll]="{ x:'1400px'}"
+>
+  <thead style="text-align: center">
+  <tr>
+    <th nzShowCheckbox [(nzChecked)]="isAllDisplayDataChecked" [nzIndeterminate]="isIndeterminate" (nzCheckedChange)="checkAll($event)"></th>
+    <th nzWidth="100px" nzLeft="0px">id</th>
+    <th nzWidth="100px" nzLeft="90px">用户编码</th>
+    <th nzWidth="100px">用户账号</th>
+    <th nzWidth="100px">用户名称</th>
+    <th nzWidth="100px">真实姓名</th>
+    <th nzWidth="100px">手机号</th>
+    <th nzWidth="100px">邮箱</th>
+    <th nzWidth="100px">地址</th>
+    <th nzWidth="100px">用户头像的url</th>
+    <th nzWidth="100px">qq号</th>
+    <th nzWidth="100px">微信</th>
+    <th nzWidth="100px">脸书</th>
+    <th nzWidth="100px">状态</th>
+    <th nzWidth="100px">创建时间</th>
+    <th nzWidth="100px">最后修改时间</th>
+    <th nzWidth="100px">备注</th>
+    <th nzWidth="100px" nzRight="0px">Action</th>
+  </tr>
+  </thead>
+  <tbody>jnj
+  <tr *ngFor="let data of nzTable.data">
+    <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus()"></td>
+    <td nzWidth="100px" nzLeft="0px">{{data.id}}</td>
+    <td nzWidth="100px" nzLeft="90px">{{data.userInfoDtlCode}}</td>
+    <td>{{data.userName}}</td>
+    <td>{{data.name}}</td>
+    <td>{{data.realName}}</td>
+    <td>{{data.phone}}</td>
+    <td>{{data.eMail}}</td>
+    <td>{{data.address}}</td>
+    <td>{{data.avatarUrl}}</td>
+    <td>{{data.qq}}</td>
+    <td>{{data.weChat}}</td>
+    <td>{{data.faceBook}}</td>
+    <td>{{statusChange(data.status,statusList)}}</td>
+    <td>{{ data.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+    <td>{{ data.lastModifiedTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+    <td>{{data.remark}}</td>
+    <td nzRight="0px"><a (click)="editArticle(data,true)">编辑</a>&nbsp;<a (click)="deleteArticle(data)">删除</a></td>
+  </tr>
+  </tbody>
+</nz-table>
+<nz-pagination [nzPageIndex]="nzPageIndex" [nzTotal]="totalRecords" [nzPageSize]="nzPageSize"
+               (nzPageIndexChange)="indexChange($event)" [nzShowSizeChanger]="true"
+               (nzPageSizeChange)="sizeChange($event)"
+               nzShowSizeChanger nzShowQuickJumper
+></nz-pagination>

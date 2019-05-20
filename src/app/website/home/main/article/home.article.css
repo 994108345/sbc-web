@@ -14,7 +14,8 @@
 }
 
 .text-font{
-  font-size: 18px;
+  font-size: 15px;
+  display: inline;
 }
 
 #title{
@@ -22,4 +23,9 @@
   text-align: left;
   font-size: 33px;
   font-weight: bold
+}
+
+.icon-p{
+  display: inline;
+  margin-right: 10px;
 }

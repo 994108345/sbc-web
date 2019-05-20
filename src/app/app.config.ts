@@ -68,6 +68,20 @@ export const urls = {
   queryArticleAllInfosUrl:ProdRoot + "/Article/webNo/articleServiceImpl/queryArticleInfo",
   /*--------------------------单个文章展示页面-----------------------------------*/
   queryArticleAllInfoUrl:ProdRoot + "/Article/webNo/articleServiceImpl/queryArticleAllInfo",
+
+  /*用户明细*/
+  queryUserInfos:PermissionRoot + "New/web/loginService/queryByRequest",
+  updateUserInfo:PermissionRoot + "New/web/loginService/updateUserInfo",
+  deleteUserInfo:PermissionRoot + "New/web/loginService/deleteByRequest",
+
+  /*文件下载*/
+  queryFileUrl:ProdRoot + "/Article/web/fileServiceImpl/queryFile",
+  insertFileUrl:ProdRoot + "/Article/web/fileServiceImpl/insertFile",
+  updateFileUrl:ProdRoot + "/Article/web/fileServiceImpl/updateFile",
+  deleteFileUrl:ProdRoot + "/Article/web/fileServiceImpl/deleteFile",
+
+  /*文件上传*/
+  uploadFileUrl:ProdRoot + "/File/webFile/pictureUpload",
 };
 
 let permissionWeb:string = '';
@@ -105,6 +119,10 @@ export const routers = {
 
   /*范例*/
   demoAddRouter:'web/demo/add',
+
+  /*文件上传*/
+  fileAddRouter:"web/file/add",
+  fileEditRouter:"web/file/add",
 };
 
 //缓存key
