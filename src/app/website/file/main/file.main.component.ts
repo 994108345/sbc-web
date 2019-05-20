@@ -88,7 +88,7 @@ export class FileMainComponent extends AbstractComponent{
     this.isDeleteVisible = false;
   }
   //确定删除弹出窗
-  deleteConfirm(event){
+  deleteConfirm(){
     this.deleteFile();
     this.isDeleteVisible = false;
   }

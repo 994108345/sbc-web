@@ -40,4 +40,8 @@ export class UserMainComponent extends AbstractComponent{
       this.wzlAlert.error('http请求出现异常，请联系管理员');
     });
   }
+
+  addArticle(){}
+
+  queryArticleByParam(){}
 }
